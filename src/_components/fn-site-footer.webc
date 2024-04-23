@@ -1,0 +1,32 @@
+<footer class="sticky" webc:root="override" class="container--grid">
+  <small class="license" @html="$data.copyright"></small>
+</footer>
+
+<style>
+  body > footer {
+    .license {
+      text-align: center;
+    }
+  }
+
+  @supports (background-color: light-dark(white, black)) {
+    body > footer {
+      background-color: light-dark(
+        var(--fn--footer--background-color--light),
+        var(--fn--footer--background-color--dark)
+      );
+    }
+  }
+
+  @supports not (background-color: light-dark(white, black)) {
+    body > footer {
+      background-color: var(--fn--footer--background-color--light);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) body > footer {
+        background-color: var(--fn--footer--background-color--dark);
+      }
+    }
+  }
+</style>

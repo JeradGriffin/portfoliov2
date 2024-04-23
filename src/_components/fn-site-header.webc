@@ -1,0 +1,28 @@
+<header webc:root="override" class="sticky">
+  <div class="container">
+    <a href="/" aria-label="Go to FuckNETS.com homepage">
+      <img
+        src="https://placehold.co/128x64?text=Fuck NETS"
+        alt="FuckNETS logo"
+        width="128"
+        height="64"
+      />
+    </a>
+  </div>
+</header>
+
+<style>
+  body > header {
+    background-color: var(--mnml--body--background-color);
+    padding-block: var(--mnml--spacing);
+
+    @supports (background-color: color-mix(in oklch, white, black)) {
+      background-color: color-mix(
+        in oklch,
+        var(--mnml--body--background-color) 95%,
+        transparent
+      );
+      backdrop-filter: blur(0.5rem);
+    }
+  }
+</style>

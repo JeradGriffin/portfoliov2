@@ -1,0 +1,76 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title @text="renderTitle(seo_title || title)"></title>
+    <link
+      rel="preload"
+      :href="getBundleFileUrl('css')"
+      webc:keep
+      as="style"
+      webc:if="getBundleFileUrl('css')"
+    />
+    <link
+      rel="modulepreload"
+      :href="getBundleFileUrl('js')"
+      as="script"
+      webc:if="getBundleFileUrl('js')"
+    />
+    <meta name="view-transition" content="same-origin" />
+    <meta name="generator" :content="eleventy.generator" />
+    <meta property="og:title" :content="renderTitle(seo_title || title)" />
+    <meta
+      name="description"
+      :content="seo_description ?? ''"
+      property="og:description"
+    />
+    <meta property="og:image" :content="renderSocialImage(socialImage)" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script webc:keep>
+      (() => {
+        const updateConnectionInfo = () => {
+          if (navigator.connection?.effectiveType) {
+            document.documentElement.dataset.connection =
+              navigator.connection.effectiveType;
+          } else {
+            document.documentElement.removeAttribute("data-connection");
+          }
+          if (navigator.connection?.saveData) {
+            document.documentElement.dataset.saveData = navigator.connection.saveData;
+          } else {
+            document.documentElement.removeAttribute("data-save-data");
+          }
+        };
+        navigator.connection?.addEventListener?.("change", updateConnectionInfo);
+        updateConnectionInfo();
+      })();
+    </script>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="screen.css" />
+    <link rel="stylesheet" href="mnml.css" />
+    <link
+      rel="stylesheet"
+      :href="getBundleFileUrl('css')"
+      webc:keep
+      webc:if="getBundleFileUrl('css')"
+      id="compiled-styles"
+    />
+    <meta name="theme-color" content="#211951" />
+  </head>
+  <body>
+    <a href="#content" class="reader-only skip-link">Jump to Content</a>
+    <fn-site-header></fn-site-header>
+    <span id="content"></span>
+    <main @raw="content" class="container--grid"></main>
+    <fn-site-footer></fn-site-footer>
+    <script
+      :src="getBundleFileUrl('js')"
+      webc:keep
+      webc:if="getBundleFileUrl('js')"
+      id="compiled-scripts"
+      type="module"
+      async
+    ></script>
+    <!--!Font Awesome Pro 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.-->
+  </body>
+</html>

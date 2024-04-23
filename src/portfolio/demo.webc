@@ -1,0 +1,4 @@
+---
+title: Demo
+--- 
+<h1 @text="title"></h1>
