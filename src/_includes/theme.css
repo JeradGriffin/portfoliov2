@@ -1,9 +1,42 @@
 :root {
-  --mnml--body--background-color--light: oklch(98.16% 0.002 247.84);
+  --mnml--body--background-color--light: oklch(100% 0 0);
   --mnml--body--background-color--dark: oklch(26.21% 0.009 248.19);
   --mnml--body--text-color--light: oklch(26.21% 0.009 248.19);
   --mnml--body--text-color--dark: oklch(98.16% 0.002 247.84);
 
+  --background--light: oklch(97.015% 0.00011 271.152);
+  --border-radius-8: .5rem;
+  --border-radius-16: 1rem;
+  --color--opposite: oklch(69.501% 0.07346 148.976);
+  --font--family: 'Montserrat', sans-serif;
+  --font--semibold: 600;
+  --font--bold: bold;
+  --text--color--light: oklch(97.015% 0.00011 271.152);
+
+  /*Nav */
+  --menu-toggle-color: oklch(26.21% 0.009 248.19);
+
+  /*Hero */
+  --hero-bg-color: #DBE6DD;
+  --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4);
+  --h1-size: 2.5rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.25rem;
+
   --fn--footer--background-color--light: oklch(94.17% 0.005 247.88);
   --fn--footer--background-color--dark: oklch(16.21% 0.009 248.19);
+}
+
+:root[data-theme="dark"] {
+  --color--opposite: oklch(97.015% 0.00011 271.152);
+  --nav-bg: #222;
+  --nav-text-color: #fff;
+  --hero-bg-color: oklch(69.501% 0.07346 148.976);
+  --hero-image-bg: oklch(91.41% 0.01679 151.395 / 0.4);
+  --menu-toggle-color: #fff;
+  color: var(--nav-text-color);
+
+  .nav-list a {
+    color: var(--nav-text-color);
+  }
 }

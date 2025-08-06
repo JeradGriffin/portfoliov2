@@ -1,14 +1,17 @@
 <header webc:root="override" class="sticky">
   <div class="container">
-    <a href="/" aria-label="Go to FuckNETS.com homepage">
-      <img
-        src="https://placehold.co/128x64?text=Fuck NETS"
-        alt="FuckNETS logo"
+    <a href="/" aria-label="Go to jeradgriffin-dev.com homepage">
+      <!-- <img
+        src="https://placehold.co/128x64?text=Jerad Griffin"
+        alt="jeradgriffin-dev.com logo"
         width="128"
         height="64"
-      />
+      /> -->
+      J/G
     </a>
+    <fn-site-navigation></fn-site-navigation>
   </div>
+  
 </header>
 
 <style>
@@ -23,6 +26,11 @@
         transparent
       );
       backdrop-filter: blur(0.5rem);
+    }
+
+    a {
+      font-family: var(--font--family);
+      font-size: 1.5rem;
     }
   }
 </style>

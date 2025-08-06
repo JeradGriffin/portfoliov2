@@ -1,0 +1,97 @@
+<section class="portfolio" id="portfolio">
+    <h2>Work</h2>
+    <div class="portfolio-container">
+        <div class="portfolio-card">
+            <a href="">
+                <div class="card-image">
+                    <img src="" alt="">
+                </div>
+                <div class="card-description">
+                    <h3>Client Name</h3>
+                    <p>Project Type</p>
+                </div>
+            </a>
+        </div>
+        <div class="portfolio-card">
+            <a href="">
+                <div class="card-image">
+                    <img src="" alt="">
+                </div>
+                <div class="card-description">
+                    <h3>Client Name</h3>
+                    <p>Project Type</p>
+                </div>
+            </a>
+        </div>
+        <div class="portfolio-card">
+            <a href="">
+                <div class="card-image">
+                    <img src="" alt="">
+                </div>
+                <div class="card-description">
+                    <h3>Client Name</h3>
+                    <p>Project Type</p>
+                </div>
+            </a>
+        </div>
+        <div class="portfolio-card">
+            <a href="">
+                <div class="card-image">
+                    <img src="" alt="">
+                </div>
+                <div class="card-description">
+                    <h3>Client Name</h3>
+                    <p>Project Type</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style webc:scoped>
+    .portfolio-container {
+        display: grid;
+    }
+</style>
+
+<script>
+function createPortfolioCard(data) {
+    const card = document.createElement('div');
+    card.className = 'portfolio-card';
+    card.innerHTML = `
+        <a href="${data.url}">
+        <div class="card-upper">
+            <img src="${data.image}" alt="${data.alt}">
+        </div>
+        <div class="card-bottom">
+            <h3>${data.client}</h3>
+            <p>${data.type}</p>
+        </div>
+        </a>
+    `;
+    return card;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("It ran");
+    const url = '/portfolio.json';
+    fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        //const container = document.getElementById('portfolio');
+        console.log(data);
+        // data.forEach(item => {
+        //     const card = createPortfolioCard(item);
+        //     container.appendChild(card);
+        // });
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+});
+</script>

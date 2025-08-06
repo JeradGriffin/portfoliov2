@@ -1,0 +1,7 @@
+body {
+    background-color: --background--light: oklch(97.015% 0.00011 271.152);
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://client1.com",
+    "image": "/images/client1.jpg",
+    "alt": "Client 1 Screenshot",
+    "client": "Client 1",
+    "type": "Web App"
+  },
+  {
+    "url": "https://client2.com",
+    "image": "/images/client2.jpg",
+    "alt": "Client 2 Screenshot",
+    "client": "Client 2",
+    "type": "E-commerce"
+  }
+]

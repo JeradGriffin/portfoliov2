@@ -1,0 +1,207 @@
+<nav class="site-nav">
+    <div class="mobile-menu-toggle"><button id="menu-toggle" aria-label="Open menu">&#9776;</button></div>
+    <ul class="nav-list" id="nav-list">
+        <li class="mobile-logo">
+            <a href="/" aria-label="Go to jeradgriffin-dev.com homepage">
+              J/G
+            </a>
+        </li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li>
+            <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle" aria-label="Toggle dark/light mode" />
+                <label for="theme-toggle"></label>
+            </div>
+        </li>
+        <li class="close-menu">
+            <button id="menu-close" aria-label="Close menu">&times;</button>
+        </li>
+    </ul>
+</nav>
+<style>
+.site-nav {
+    position: relative;
+    /* Remove padding here for mobile-first */
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile-first styles */
+.mobile-menu-toggle {
+    height: 32px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+#menu-toggle {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--menu-toggle-color, #000);
+    padding: 0;
+}
+
+.nav-list {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--nav-bg, #fff);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-block: 100px;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    z-index: 1000;
+    display: flex;
+
+}
+
+.nav-list.open {
+    transform: translateY(0);
+}
+
+.nav-list li.mobile-logo {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.close-menu {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.theme-switch {
+    display: flex;
+}
+
+.theme-switch input[type=checkbox] {
+    display: none;
+}
+
+.theme-switch input[type=checkbox]:checked ~ label::after {
+    background-color: #313131;
+    transform: translateX(24px);
+}
+
+.theme-switch label {
+    background-color: #F5F5F5;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    width: 50px;
+    height: 25px;
+}
+
+.theme-switch label::after {
+    background-color: #313131;
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 1px;
+    top: 0.5px;
+    transition: all ease-in-out 0.3s;
+    width: 24px;
+    height: 24px;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Desktop styles */
+@media (min-width: 1023px) {
+    #menu-toggle {
+        display: none;
+    }
+    .nav-list {
+        position: static;
+        height: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.5rem;
+        background: none;
+        transform: none;
+        transition: none;
+        z-index: auto;
+    }
+    .nav-list li.mobile-logo {
+        display: none;
+    }
+    .site-nav {
+        padding: 1rem;
+    }
+    .close-menu {
+        display: none;
+    }
+}
+</style>
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const navList = document.getElementById('nav-list');
+const menuClose = document.getElementById('menu-close');
+const themeToggle = document.getElementById('theme-toggle');
+
+// Detect system dark mode on load
+const root = document.documentElement;
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+let isDark = root.getAttribute('data-theme') === 'dark';
+
+if (!root.hasAttribute('data-theme')) {
+    root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    themeToggle.textContent = prefersDark ? '☀️' : '🌙';
+} else {
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+}
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.add('open');
+});
+menuClose.addEventListener('click', () => {
+    navList.classList.remove('open');
+});
+
+themeToggle.addEventListener('click', () => {
+    isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeToggle.textContent = isDark ? '🌙' : '☀️';
+});
+
+// Optional: Close menu on link click (mobile)
+navList.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navList.classList.remove('open');
+    });
+});
+</script></li>

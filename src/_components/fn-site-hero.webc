@@ -1,0 +1,83 @@
+<section class="hero" id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div>
+        <h1>Hi, I'm <br><span class="color-opposite">Jerad Griffin</span></h1>
+        <h2>Designer<span class="color-opposite">/</span>Developer</h2>
+      </div>
+      <p>Explore my work and projects that showcase my skills and creativity.</p>
+      <a href="#portfolio" class="btn">Contact</a>
+    </div>
+    <div class="hero-image">
+      <img src="/portfolio/images/hero-image.png" alt="Hero Image">
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-container {
+    background-color: var(--hero-bg-color, oklch(91.41% 0.01679 151.395));
+    border-radius: var(--border-radius-8, 0.5rem);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    overflow: hidden;
+    padding: 3.5rem 1rem;
+    position: relative;
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: space-between;
+      width: 71%;
+      z-index: 1;
+    }
+
+    .hero-image {
+      background-color: var(--hero-image-bg, oklch(91.41% 0.01679 151.395 / 0.9));
+      border-top-left-radius: var(--border-radius-16, 1rem);
+      position: absolute;
+      bottom: 0;
+      right: -0.5rem;
+      img {
+        width: 10rem;
+        margin: 10px auto 0;
+        position: relative;
+        top: 8px;
+      }
+    }
+
+    h1, h2 {
+      color: var(--mnml--body--text-color--light);
+      font-weight: var(--font--bold);
+      margin-block: 0;
+      span {
+        color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
+      }
+    }
+
+    h1 {
+      font-size: var(--h1-size, 2.5rem);
+      line-height: 2.5rem;
+    }
+
+    p {
+      color: var(--mnml--body--text-color--light);
+      font-weight: var(--font--semibold, 600);
+      line-height: 1.25rem;
+      padding-inline-end: .5rem;
+      margin-block: 0;
+    }
+
+    a.btn {
+      background-color: #3C3C3C;
+      border-radius: 50px;
+      color: var(--text--color--light);
+      padding: 0.4rem 1rem;
+      text-decoration: none;
+      width: fit-content;
+    }
+  }
+</style>

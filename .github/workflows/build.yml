@@ -1,4 +1,4 @@
-name: Build FuckNETS.com
+name: Build jeradgriffin-dev.com
 on:
   push:
     branches:
