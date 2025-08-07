@@ -4,20 +4,31 @@
   --mnml--body--text-color--light: oklch(26.21% 0.009 248.19);
   --mnml--body--text-color--dark: oklch(98.16% 0.002 247.84);
 
+  --spacing--small: 1.5rem;
+
+  --color--primary: oklch(31.317% 0.00004 271.152);
+  --color--secondary: oklch(69.501% 0.07346 148.976);
+  --color--tertiary: oklch(35.618% 0.00004 271.152);
+  --off-white: oklch(97.015% 0.00011 271.152);
+  --white: oklch(100% 0.00011 271.152);
+
   --background--light: oklch(97.015% 0.00011 271.152);
   --border-radius-8: .5rem;
   --border-radius-16: 1rem;
-  --color--opposite: oklch(69.501% 0.07346 148.976);
+  --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --btn--background-color: var(--color--opposite);
+  --color--opposite: var(--color--secondary);
   --font--family: 'Montserrat', sans-serif;
   --font--semibold: 600;
   --font--bold: bold;
-  --text--color--light: oklch(97.015% 0.00011 271.152);
+  --text--color--light: var(--off-white);
 
   /*Nav */
-  --menu-toggle-color: oklch(26.21% 0.009 248.19);
+  --menu-toggle-color: var(--color--primary);
+  --nav-bg: var(--off-white);
 
   /*Hero */
-  --hero-bg-color: #DBE6DD;
+  --hero-bg-color: oklch(91.41% 0.01679 151.395);
   --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4);
   --h1-size: 2.5rem;
   --h2-size: 1.5rem;
@@ -28,15 +39,32 @@
 }
 
 :root[data-theme="dark"] {
+  --btn--background-color: var(--color--primary);
   --color--opposite: oklch(97.015% 0.00011 271.152);
-  --nav-bg: #222;
-  --nav-text-color: #fff;
+  --nav-bg: oklch(25.197% 0.00003 271.152);
+  --nav-text-color: oklch(100% 0.00011 271.152);
   --hero-bg-color: oklch(69.501% 0.07346 148.976);
   --hero-image-bg: oklch(91.41% 0.01679 151.395 / 0.4);
-  --menu-toggle-color: #fff;
-  color: var(--nav-text-color);
+  --menu-toggle-color: oklch(100% 0.00011 271.152);
+
+  body {
+    background-color: var(--color--primary);
+  }
+
+  section:not(.hero) {
+    background-color: var(--color--tertiary, oklch(35.618% 0.00004 271.152));
+    padding: var(--spacing--small, 1.5rem);
+}
 
   .nav-list a {
     color: var(--nav-text-color);
+  }
+
+  header .logo {
+    color: var(--menu-toggle-color);
+  }
+
+  a.btn {
+      background-color: var(--btn--background-color, oklch(35.618% 0.00004 271.152));
   }
 }

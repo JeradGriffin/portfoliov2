@@ -1,7 +1,22 @@
 body {
-    background-color: --background--light: oklch(97.015% 0.00011 271.152);
+    background-color: var(--background--light, oklch(97.015% 0.00011 271.152));
 }
+
 header .container {
     display: flex;
     justify-content: space-between;
+}
+
+section {
+    border-radius: var(--border-radius-8, .5rem);
+    box-shadow: var(--box-shadow, 0 1px 4px rgba(0, 0, 0, 0.2));
+}
+
+section:not(.hero) {
+    background-color: var(--white);
+    padding: var(--spacing--small, 1.5rem);
+}
+
+.container--grid {
+    row-gap: var(--spacing--small, 1.5rem);
 }

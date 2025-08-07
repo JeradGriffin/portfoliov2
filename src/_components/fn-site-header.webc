@@ -1,6 +1,6 @@
 <header webc:root="override" class="sticky">
   <div class="container">
-    <a href="/" aria-label="Go to jeradgriffin-dev.com homepage">
+    <a href="/" aria-label="Go to jeradgriffin-dev.com homepage" class="logo">
       <!-- <img
         src="https://placehold.co/128x64?text=Jerad Griffin"
         alt="jeradgriffin-dev.com logo"
@@ -31,6 +31,12 @@
     a {
       font-family: var(--font--family);
       font-size: 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      color: var(--color--primary);
+      text-decoration: none;
     }
   }
 </style>
