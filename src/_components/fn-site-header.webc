@@ -1,6 +1,6 @@
-<header webc:root="override" class="sticky">
+<header webc:root="override" class="sticky" id="home">
   <div class="container">
-    <a href="/" aria-label="Go to jeradgriffin-dev.com homepage" class="logo">
+    <a href="#home" aria-label="Go to jeradgriffin-dev.com homepage" class="logo">
       <!-- <img
         src="https://placehold.co/128x64?text=Jerad Griffin"
         alt="jeradgriffin-dev.com logo"
@@ -16,13 +16,13 @@
 
 <style>
   body > header {
-    background-color: var(--mnml--body--background-color);
+    background-color: var(--off-white);
     padding-block: var(--mnml--spacing);
 
-    @supports (background-color: color-mix(in oklch, white, black)) {
+    @supports (background-color: color-mix(in oklch, var(--off-white), black)) {
       background-color: color-mix(
         in oklch,
-        var(--mnml--body--background-color) 95%,
+        var(--off-white) 95%,
         transparent
       );
       backdrop-filter: blur(0.5rem);

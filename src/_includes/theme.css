@@ -4,7 +4,10 @@
   --mnml--body--text-color--light: oklch(26.21% 0.009 248.19);
   --mnml--body--text-color--dark: oklch(98.16% 0.002 247.84);
 
-  --spacing--small: 1.5rem;
+  --spacing--xx-small: 0.5rem;
+  --spacing--x-small: 0.75rem;
+  --spacing--small: 1rem;
+  --spacing--medium: 1.5rem;
 
   --color--primary: oklch(31.317% 0.00004 271.152);
   --color--secondary: oklch(69.501% 0.07346 148.976);
@@ -17,9 +20,17 @@
   --border-radius-16: 1rem;
   --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   --btn--background-color: var(--color--opposite);
+  --card-bg: var(--off-white);
   --color--opposite: var(--color--secondary);
   --font--family: 'Montserrat', sans-serif;
   --font--semibold: 600;
+  --font--size--16: 1rem;
+  --font--size--18: 1.125rem;
+  --font--size--20: 1.25rem;
+  --font--size--24: 1.5rem;
+  --font--size--32: 2rem;
+  --font--size--48: 3rem;
+  --font--size--64: 4rem;
   --font--bold: bold;
   --text--color--light: var(--off-white);
 
@@ -34,14 +45,15 @@
   --h2-size: 1.5rem;
   --h3-size: 1.25rem;
 
-  --fn--footer--background-color--light: oklch(94.17% 0.005 247.88);
-  --fn--footer--background-color--dark: oklch(16.21% 0.009 248.19);
+  --fn--footer--background-color--light: var(--off-white);
+  --fn--footer--background-color--dark: var(--color--primary);
 }
 
 :root[data-theme="dark"] {
   --btn--background-color: var(--color--primary);
+  --card-bg: var(--color--primary);
   --color--opposite: oklch(97.015% 0.00011 271.152);
-  --nav-bg: oklch(25.197% 0.00003 271.152);
+  --nav-bg: var(--color--primary);
   --nav-text-color: oklch(100% 0.00011 271.152);
   --hero-bg-color: oklch(69.501% 0.07346 148.976);
   --hero-image-bg: oklch(91.41% 0.01679 151.395 / 0.4);
@@ -53,18 +65,34 @@
 
   section:not(.hero) {
     background-color: var(--color--tertiary, oklch(35.618% 0.00004 271.152));
-    padding: var(--spacing--small, 1.5rem);
-}
+  }
 
   .nav-list a {
     color: var(--nav-text-color);
   }
 
-  header .logo {
-    color: var(--menu-toggle-color);
+  body > header {
+    background-color: var(--color-primary);
+
+    .logo {
+      color: var(--menu-toggle-color);
+    }
+  }
+
+  .portfolio {
+    h2, h3, p {
+      color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
+    }
   }
 
   a.btn {
       background-color: var(--btn--background-color, oklch(35.618% 0.00004 271.152));
+  }
+
+  .close-menu {
+    button {
+        color: var(--off-white);
+       
+    }
   }
 }

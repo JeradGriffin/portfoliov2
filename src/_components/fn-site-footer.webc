@@ -4,6 +4,7 @@
 
 <style>
   body > footer {
+    z-index: 1;
     .license {
       text-align: center;
     }

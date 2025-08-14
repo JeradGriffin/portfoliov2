@@ -1,15 +1,22 @@
 <section class="hero" id="hero">
   <div class="hero-container">
+    <!-- <div class="empty"></div> -->
     <div class="hero-content">
-      <div>
+      <div class="hero-content--header">
         <h1>Hi, I'm <br><span class="color-opposite">Jerad Griffin</span></h1>
         <h2>Designer<span class="color-opposite">/</span>Developer</h2>
       </div>
-      <p>Explore my work and projects that showcase my skills and creativity.</p>
-      <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact</a>
     </div>
-    <div class="hero-image">
-      <img src="/portfolio/images/hero-image.png" alt="Hero Image">
+    <div class="hero-content--description">
+      <div class="hero-content--description-text">
+        <p>Explore my work and projects that showcase my skills and creativity.</p>
+        <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact</a>
+      </div>
+    </div>
+    <div class="hero-image--container">
+      <div class="hero-image">
+        <img src="/portfolio/images/hero-image.png" alt="Hero Image">
+      </div>
     </div>
   </div>
 </section>
@@ -20,55 +27,62 @@
     border-radius: var(--border-radius-8, 0.5rem);
     /* box-shadow: var(--box-shadow, 0 1px 4px rgba(0, 0, 0, 0.2)); */
     display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    min-height: 400px;
     overflow: hidden;
-    padding: 3.5rem 1rem;
+    /* padding: 3.5rem 1rem; */
     position: relative;
+    transition: min-height 0.3s, height 0.3s;
+    width: 100%;
+
+    /* .empty {
+      grid-area: 1 / 1 / 2 / 5;
+      height: 0;
+      min-height: 0;
+      padding: 0;
+    } */
 
     .hero-content {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      justify-content: space-between;
-      width: 71%;
+      grid-area: 1 / 1 / 3 / 5;
+      justify-content: flex-end;
+      max-inline-size: 100%;
+      width: 100%;
       z-index: 1;
+
+      .hero-content--header {
+        padding: var(--spacing--x-small) var(--spacing--small) ;
+      }
+    }
+
+    .hero-content--description-text {
+      padding-inline: var(--spacing--small);
+    }
+
+    .hero-content--description {
+      grid-area: 3 / 1 / 5 / 3;
+    }
+
+    .hero-image--container {
+      background-color: var(--hero-image-bg, oklch(91.41% 0.01679 151.395 / 0.9));
+      border-top-left-radius: var(--border-radius-16, 1rem);
+      grid-area: 3 / 3 / 5 / 5;
+      height: 100%;
     }
 
     .hero-image {
-      background-color: var(--hero-image-bg, oklch(91.41% 0.01679 151.395 / 0.9));
-      border-top-left-radius: var(--border-radius-16, 1rem);
       position: absolute;
-      bottom: 0;
-      right: -0.5rem;
+      bottom: -.75rem;
+      right: 0; 
+      
       img {
-        width: 10rem;
+        width: 10.5rem;
         margin: 10px auto 0;
-        position: relative;
-        top: 8px;
       }
-    }
-
-    h1, h2 {
-      color: var(--color--primary);
-      font-weight: var(--font--bold);
-      margin-block: 0;
-      span {
-        color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
-      }
-    }
-
-    h1 {
-      font-size: var(--h1-size, 2.5rem);
-      line-height: 2.5rem;
-    }
-
-    p {
-      color: var(--color--primary);
-      font-weight: var(--font--semibold, 600);
-      line-height: 1.25rem;
-      padding-inline-end: .5rem;
-      margin-block-start: 0;
     }
 
     a.btn {

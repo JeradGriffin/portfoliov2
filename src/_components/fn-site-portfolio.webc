@@ -4,7 +4,7 @@
         <div class="portfolio-card">
             <a href="">
                 <div class="card-image">
-                    <img src="" alt="">
+                    <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
                 <div class="card-description">
                     <h3>Client Name</h3>
@@ -15,7 +15,7 @@
         <div class="portfolio-card">
             <a href="">
                 <div class="card-image">
-                    <img src="" alt="">
+                    <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
                 <div class="card-description">
                     <h3>Client Name</h3>
@@ -26,7 +26,7 @@
         <div class="portfolio-card">
             <a href="">
                 <div class="card-image">
-                    <img src="" alt="">
+                    <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
                 <div class="card-description">
                     <h3>Client Name</h3>
@@ -37,7 +37,7 @@
         <div class="portfolio-card">
             <a href="">
                 <div class="card-image">
-                    <img src="" alt="">
+                    <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
                 <div class="card-description">
                     <h3>Client Name</h3>
@@ -49,8 +49,59 @@
 </section>
 
 <style webc:scoped>
+    h2 {
+        margin-block-end: var(--spacing--small, 1rem);
+    }
+    
     .portfolio-container {
         display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+        .portfolio-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .portfolio-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .portfolio-card {
+        background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
+        border-radius: var(--border-radius-8, 0.5rem);
+        overflow: hidden;
+        padding: var(--spacing--small);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: grid;
+            gap: var(--spacing--small);
+
+            img {
+                border-radius: var(--border-radius-8);
+            }
+
+            h3, p {
+                color: var(--color--primary, oklch(35.618% 0.00004 271.152));
+            }
+
+            h3 {
+                font-size: var(--h3-size, 1.25rem);
+                font-weight: var(--font--bold);
+                margin-block-end: var(--spacing--xx-small);
+            }
+
+            p {
+                font-weight: normal;
+            }
+        }
     }
 </style>
 

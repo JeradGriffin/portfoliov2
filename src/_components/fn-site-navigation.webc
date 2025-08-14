@@ -2,14 +2,13 @@
     <div class="mobile-menu-toggle"><button id="menu-toggle" aria-label="Open menu">&#9776;</button></div>
     <ul class="nav-list" id="nav-list">
         <li class="mobile-logo">
-            <a href="/" aria-label="Go to jeradgriffin-dev.com homepage">
+            <a href="#home" aria-label="Go to jeradgriffin-dev.com homepage">
               J/G
             </a>
         </li>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/projects/">Projects</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#clients">Clients</a></li>
         <li>
             <div class="theme-switch">
                 <input type="checkbox" id="theme-toggle" aria-label="Toggle dark/light mode" />
@@ -20,7 +19,9 @@
             <button id="menu-close" aria-label="Close menu">&times;</button>
         </li>
     </ul>
+    <div id="overlay"></div>
 </nav>
+
 <style>
 .site-nav {
     position: relative;
@@ -37,8 +38,9 @@
     align-items: center;
 }
 #menu-toggle {
-    display: block;
+    display: contents;
     font-size: 2rem;
+    line-height: 0;
     background: none;
     border: none;
     cursor: pointer;
@@ -63,12 +65,49 @@
     padding: 0;
     padding-block: 100px;
     transform: translateY(-100%);
-    transition: transform 0.3s;
+    transition: transform 0.3s, right 0.3s, left 0.3s;
     z-index: 1000;
     display: flex;
-
 }
 
+/* Tablet: open from right side */
+@media (min-width: 600px) and (max-width: 1022px) {
+    .nav-list {
+        width: 512px;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        left: auto;
+        bottom: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.04);
+        padding-block: 80px;
+    }
+    .nav-list.open {
+        transform: translateX(0);
+    }
+    
+    #overlay {
+        position: fixed; /* Or absolute, depending on desired scope */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+        z-index: 999; /* Ensure it's above other content */
+        display: none; /* Hidden by default */
+        transition: opacity 0.3s ease-in-out; /* Optional: for smooth transitions */
+        opacity: 0; /* Optional: for smooth transitions */
+    }
+
+    .nav-list.open ~ #overlay {
+        display: block;
+        opacity: 1;
+    }
+}
+
+/* Default open state for mobile (slide down) */
 .nav-list.open {
     transform: translateY(0);
 }
@@ -83,6 +122,7 @@
 .nav-list a {
     text-decoration: none;
     color: inherit;
+    font-size: var(--font--size--18);
     font-weight: 500;
 }
 
@@ -91,6 +131,19 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
+
+    button {
+        border: 0;
+        padding: 0;
+        color: var(--color--primary);
+        display: contents;
+        font-weight: 600;
+        height: min-content;
+        line-height: 0;
+        font-size: 2rem;
+        position: absolute;
+        background-color: transparent;
+    }
 }
 
 .theme-switch {
@@ -102,12 +155,12 @@
 }
 
 .theme-switch input[type=checkbox]:checked ~ label::after {
-    background-color: #313131;
+    background-color: var(--color--primary);
     transform: translateX(24px);
 }
 
 .theme-switch label {
-    background-color: #F5F5F5;
+    background-color: var(--off-white);
     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     cursor: pointer;
@@ -115,18 +168,18 @@
     position: relative;
     transition: all ease-in-out 0.3s;
     width: 50px;
-    height: 25px;
+    height: 26px;
 }
 
 .theme-switch label::after {
-    background-color: #313131;
+    background-color: var(--color--primary);
     border-radius: 50%;
     content: ' ';
     cursor: pointer;
     display: inline-block;
     position: absolute;
     left: 1px;
-    top: 0.5px;
+    top: 1px;
     transition: all ease-in-out 0.3s;
     width: 24px;
     height: 24px;
@@ -151,6 +204,7 @@
         justify-content: flex-start;
         align-items: center;
         gap: 1.5rem;
+        padding: 0;
         background: none;
         transform: none;
         transition: none;
@@ -160,7 +214,7 @@
         display: none;
     }
     .site-nav {
-        padding: 1rem;
+        padding: 0;
     }
     .close-menu {
         display: none;
