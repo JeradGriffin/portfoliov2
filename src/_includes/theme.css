@@ -8,6 +8,7 @@
   --spacing--x-small: 0.75rem;
   --spacing--small: 1rem;
   --spacing--medium: 1.5rem;
+  --spacing--large: 2rem;
 
   --color--primary: oklch(31.317% 0.00004 271.152);
   --color--secondary: oklch(69.501% 0.07346 148.976);
@@ -33,15 +34,18 @@
   --font--size--64: 4rem;
   --font--bold: bold;
   --text--color--light: var(--off-white);
+  --transition: all ease-in-out 0.3s;
 
-  /*Nav */
+  /*Header/Nav */
+  --offset-height: 6rem;
   --menu-toggle-color: var(--color--primary);
   --nav-bg: var(--off-white);
 
   /*Hero */
   --hero-bg-color: oklch(91.41% 0.01679 151.395);
+  --hero-height: calc(100vh - var(--offset-height, 6rem));
   --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4);
-  --h1-size: 2.5rem;
+  --h1-size: clamp(3rem, 6vw, 4rem);
   --h2-size: 1.5rem;
   --h3-size: 1.25rem;
 
@@ -79,8 +83,8 @@
     }
   }
 
-  .portfolio {
-    h2, h3, p {
+  .portfolio, .clients {
+    h2, h3, p, a {
       color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
     }
   }
@@ -93,6 +97,19 @@
     button {
         color: var(--off-white);
        
+    }
+  }
+
+  .clients {
+    li {
+      &:hover,
+      &:focus-within {
+          background-color: var(--color--secondary);
+      }
+      &:hover a,
+      &:focus-within a {
+          color: var(--card-bg, oklch(97.015% 0.00011 271.152));
+      }
     }
   }
 }

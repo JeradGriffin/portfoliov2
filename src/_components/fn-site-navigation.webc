@@ -180,7 +180,7 @@
     position: absolute;
     left: 1px;
     top: 1px;
-    transition: all ease-in-out 0.3s;
+    transition: var(--transition);
     width: 24px;
     height: 24px;
 }

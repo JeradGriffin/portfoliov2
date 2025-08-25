@@ -1,0 +1,72 @@
+<section class="clients">
+    <h2>Clients</h2>
+    <ul>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Kraft</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">FCSA</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">LGE</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Liberty Mutual</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Batteries Plus</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Amneal</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Ace Group</a></li>
+        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">IKEA</a></li>
+    </ul>
+</section>
+
+<style>
+    .clients {
+        padding: var(--spacing--medium);
+        border-radius: var(--border-radius-8);
+        box-shadow: var(--box-shadow);
+
+        container-type: inline-size;
+        container-name: clients;
+
+        ul {
+            border-radius: var(--border-radius-8);
+            display: grid;
+            gap: calc(var(--spacing--xx-small) / 2);
+            grid-template-columns: 1fr 1fr;
+            justify-content: space-between;
+            list-style: none;
+            margin-inline: 0;
+            overflow: hidden;
+            padding: 0;
+
+            li {
+                background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                transition: var(--transition);
+                width: 100%;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: var(--color--primary);
+                    font-weight: var(--font--bold);
+                    gap: var(--spacing--small);
+                    justify-content: center;
+                    margin: 0 auto;
+                    padding: var(--spacing--medium) var(--spacing--small);
+                    text-decoration: none;
+                }
+
+                &:hover,
+                &:focus-within {
+                    background-color: var(--color--primary);
+                }
+                &:hover a,
+                &:focus-within a {
+                    color: var(--card-bg, oklch(97.015% 0.00011 271.152));
+                }
+            }
+        }
+
+        @container clients (min-width: 1024px) {
+            ul {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }    
+</style>

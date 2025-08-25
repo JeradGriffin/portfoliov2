@@ -8,14 +8,16 @@ h1, h2 {
     color: var(--color--primary);
     font-weight: var(--font--bold);
     margin-block: 0;
-    span {
-    color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
+    span.color-opposite {
+        color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
+        -webkit-text-stroke: 2px var(--color--primary);
+        paint-order: stroke fill;
     }
 }
 
 h1 {
-    font-size: var(--h1-size, 2.5rem);
-    line-height: 2.5rem;
+    font-size: var(--h1-size);
+    line-height: clamp(3rem, 6vw, 3.5rem);
 }
 
 p {
@@ -34,6 +36,8 @@ header .container {
 section {
     border-radius: var(--border-radius-8, .5rem);
     box-shadow: var(--box-shadow, 0 1px 4px rgba(0, 0, 0, 0.2));
+    display: grid;
+    gap: var(--spacing--small);
 }
 
 section:not(.hero) {
