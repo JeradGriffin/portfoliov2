@@ -8,7 +8,9 @@
       <div class="hero-content--description">
         <div class="hero-content--description-text">
           <p>Explore my work and projects that showcase my skills and creativity.</p>
-          <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact <img src="/portfolio/images/forward.svg" alt=""></a>
+          <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact 
+            <img src="/portfolio/images/arrow-right.png" alt="">
+          </a>
         </div>
       </div>
     </div>
@@ -99,7 +101,9 @@
 
       img {
         color: var(--white);
-        width: var(--font--size--24);
+        height: 1.25rem;
+        position: relative;
+        right: -8px;
       }
     }
   }

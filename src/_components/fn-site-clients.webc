@@ -1,14 +1,14 @@
-<section class="clients">
+<section class="clients" id="clients">
     <h2>Clients</h2>
     <ul>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Kraft</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">FCSA</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">LGE</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Liberty Mutual</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Batteries Plus</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Amneal</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">Ace Group</a></li>
-        <li><a href=""><img src="/portfolio/images/client-icon.svg" alt="">IKEA</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">Kraft</a></li>
+        <li><a href="https://www.fcsamerica.com/" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">FCSA</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">LGE</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">Liberty Mutual</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">Batteries Plus</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">Amneal</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">Ace Group</a></li>
+        <li><a href="" target="_blank"><img src="/portfolio/images/client-icon.svg" alt="">IKEA</a></li>
     </ul>
 </section>
 

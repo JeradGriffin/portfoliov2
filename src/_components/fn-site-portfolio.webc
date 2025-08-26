@@ -2,7 +2,7 @@
     <h2>Work</h2>
     <div class="portfolio-container">
         <div class="portfolio-card">
-            <a href="">
+            <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
                     <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
@@ -13,7 +13,7 @@
             </a>
         </div>
         <div class="portfolio-card">
-            <a href="">
+            <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
                     <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
@@ -24,7 +24,7 @@
             </a>
         </div>
         <div class="portfolio-card">
-            <a href="">
+            <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
                     <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="portfolio-card">
-            <a href="">
+            <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
                     <img src="/portfolio/images/kraft.jpg" alt="">
                 </div>
@@ -91,10 +91,15 @@
             color: inherit;
             display: grid;
             gap: var(--spacing--small);
-
-            img {
+            .card-image {
                 border-radius: var(--border-radius-8);
-                transition: transform 0.3s ease;
+                display: flex;
+                height: auto;
+                overflow: hidden;
+
+                img {
+                    transition: transform 0.3s ease;
+                }
             }
 
             h3, p {
@@ -134,14 +139,9 @@ function createPortfolioCard(data) {
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("It ran");
-    const url = '/portfolio.json';
+    const url = 'portfolio.json';
     fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
         //const container = document.getElementById('portfolio');
         console.log(data);
