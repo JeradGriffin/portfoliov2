@@ -2,11 +2,11 @@
     <div class="mobile-menu-toggle"><button id="menu-toggle" aria-label="Open menu">&#9776;</button></div>
     <ul class="nav-list" id="nav-list">
         <li class="mobile-logo">
-            <a href="#home" aria-label="Go to jeradgriffin-dev.com homepage">J/G</a>
+            <a href="/" aria-label="Go to jeradgriffin-dev.com homepage">J/G</a>
         </li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#portfolio">Work</a></li>
-        <li><a href="#clients">Clients</a></li>
+        <li><a href="/#home" aria-label="Go to homepage">Home</a></li>
+        <li><a href="/#portfolio">Work</a></li>
+        <li><a href="/#clients">Clients</a></li>
         <li>
             <div class="theme-switch">
                 <input type="checkbox" id="theme-toggle" aria-label="Toggle dark/light mode" />

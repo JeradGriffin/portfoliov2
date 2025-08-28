@@ -37,6 +37,7 @@
   --transition: all ease-in-out 0.3s;
 
   /*Header/Nav */
+  --header-height: 4rem;
   --offset-height: 6rem;
   --menu-toggle-color: var(--color--primary);
   --nav-bg: var(--off-white);
@@ -48,6 +49,7 @@
   --h1-size: clamp(3rem, 6vw, 4rem);
   --h2-size: 1.5rem;
   --h3-size: 1.25rem;
+  --p-size: 1rem;
 
   --fn--footer--background-color--light: var(--off-white);
   --fn--footer--background-color--dark: var(--color--primary);
@@ -83,7 +85,7 @@
     }
   }
 
-  .portfolio, .clients {
+  .portfolio, .clients, .portfolio-text {
     h2, h3, p, a {
       color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
     }

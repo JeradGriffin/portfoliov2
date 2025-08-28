@@ -45,7 +45,7 @@
         updateConnectionInfo();
       })();
     </script>
-    
+    <script type="javascript/auto" src="page.js"></script>
     <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="screen.css" />
     <link rel="stylesheet" href="mnml.css" />

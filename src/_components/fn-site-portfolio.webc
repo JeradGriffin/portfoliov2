@@ -1,10 +1,10 @@
 <section class="portfolio" id="portfolio">
     <h2>Work</h2>
     <div class="portfolio-container">
-        <div class="portfolio-card">
+        <div class="portfolio-card kraft">
             <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
-                    <img src="/portfolio/images/kraft.jpg" alt="">
+                    <img src="/portfolio/images/kraft.png" alt="">
                 </div>
                 <div class="card-description">
                     <h3>Kraft</h3>
@@ -15,7 +15,7 @@
         <div class="portfolio-card">
             <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
-                    <img src="/portfolio/images/kraft.jpg" alt="">
+                    <img src="/portfolio/images/fcsa.png" alt="">
                 </div>
                 <div class="card-description">
                     <h3>FCSA</h3>
@@ -26,10 +26,10 @@
         <div class="portfolio-card">
             <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
-                    <img src="/portfolio/images/kraft.jpg" alt="">
+                    <img src="/portfolio/images/chubb.png" alt="">
                 </div>
                 <div class="card-description">
-                    <h3>Ace Group</h3>
+                    <h3>Chubb</h3>
                     <p>Development</p>
                 </div>
             </a>
@@ -37,10 +37,10 @@
         <div class="portfolio-card">
             <a href="/pages/fn-site-portfolio-page">
                 <div class="card-image">
-                    <img src="/portfolio/images/kraft.jpg" alt="">
+                    <img src="/portfolio/images/csod.png" alt="">
                 </div>
                 <div class="card-description">
-                    <h3>Cornerstone OnDemand</h3>
+                    <h3>Cornerstone</h3>
                     <p>Design and Development</p>
                 </div>
             </a>
@@ -64,25 +64,15 @@
         grid-template-columns: 1fr;
     }
 
-    @container portfolio (min-width: 768px) {
-        .portfolio-container {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    @container portfolio (min-width: 1024px) {
-        .portfolio-container {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-
     .portfolio-card {
         background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
         border-radius: var(--border-radius-8, 0.5rem);
         overflow: hidden;
         padding: var(--spacing--small);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-            
+        &:hover {
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+        }
         &:hover img {
             transform: scale(1.08);
         }
@@ -95,7 +85,10 @@
                 border-radius: var(--border-radius-8);
                 display: flex;
                 height: auto;
+                /* min-height: 14.688rem;
+                max-height: 14.688rem; */
                 overflow: hidden;
+                min-width: 100%;
 
                 img {
                     transition: transform 0.3s ease;
@@ -117,41 +110,35 @@
             }
         }
     }
+
+    @container portfolio (min-width: 768px) {
+        .portfolio-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @container portfolio (min-width: 1024px) {
+        .portfolio-container {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
 </style>
 
 <script>
-function createPortfolioCard(data) {
-    const card = document.createElement('div');
-    card.className = 'portfolio-card';
-    card.innerHTML = `
-        <a href="${data.url}">
-        <div class="card-upper">
-            <img src="${data.image}" alt="${data.alt}">
-        </div>
-        <div class="card-bottom">
-            <h3>${data.client}</h3>
-            <p>${data.type}</p>
-        </div>
-        </a>
-    `;
-    return card;
-}
+    // Add class names to portfolio cards based on their headings
+    document.querySelectorAll('.portfolio-card').forEach(card => {
+        const h3 = card.querySelector('h3');
+        const name = h3.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        card.classList.add(name);
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("It ran");
-    const url = 'portfolio.json';
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        //const container = document.getElementById('portfolio');
-        console.log(data);
-        // data.forEach(item => {
-        //     const card = createPortfolioCard(item);
-        //     container.appendChild(card);
-        // });
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
+        const link = card.querySelector('a');
+        if (link) {
+            const baseHref = link.getAttribute('href').split('?')[0];
+            link.setAttribute('href', `${baseHref}?card=${name}`);
+        }
+
+        link.addEventListener('click', function() {
+            sessionStorage.setItem('portfolioCardUrl', link.href);
+        });
     });
-});
 </script>
