@@ -23,7 +23,7 @@
                 width: 100%;
                 height: auto;
                 border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
             }
 
             .portfolio-text {
@@ -60,7 +60,7 @@
 
 <script>
     // Example portfolio data
-    const portfolioData = {
+    const portfolioPageData = {
         kraft: {
             image: "/portfolio/images/kraft_devices.png",
             title: "Kraft Landing Page",
@@ -87,7 +87,7 @@
     const portfolioCardUrl = sessionStorage.getItem('portfolioCardUrl');
     if (portfolioCardUrl) {
         const cardName = new URL(portfolioCardUrl).searchParams.get('card');
-        const data = portfolioData[cardName];
+        const data = portfolioPageData[cardName];
         if (data) {
             document.querySelector('.portfolio-image').src = data.image;
             document.querySelector('.portfolio-text h2').textContent = data.title;

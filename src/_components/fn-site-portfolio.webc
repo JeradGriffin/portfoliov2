@@ -1,50 +1,7 @@
 <section class="portfolio" id="portfolio">
     <h2>Work</h2>
     <div class="portfolio-container">
-        <div class="portfolio-card kraft">
-            <a href="/pages/fn-site-portfolio-page">
-                <div class="card-image">
-                    <img src="/portfolio/images/kraft.png" alt="">
-                </div>
-                <div class="card-description">
-                    <h3>Kraft</h3>
-                    <p>Development</p>
-                </div>
-            </a>
-        </div>
-        <div class="portfolio-card">
-            <a href="/pages/fn-site-portfolio-page">
-                <div class="card-image">
-                    <img src="/portfolio/images/fcsa.png" alt="">
-                </div>
-                <div class="card-description">
-                    <h3>FCSA</h3>
-                    <p>Custom Component Development</p>
-                </div>
-            </a>
-        </div>
-        <div class="portfolio-card">
-            <a href="/pages/fn-site-portfolio-page">
-                <div class="card-image">
-                    <img src="/portfolio/images/chubb.png" alt="">
-                </div>
-                <div class="card-description">
-                    <h3>Chubb</h3>
-                    <p>Development</p>
-                </div>
-            </a>
-        </div>
-        <div class="portfolio-card">
-            <a href="/pages/fn-site-portfolio-page">
-                <div class="card-image">
-                    <img src="/portfolio/images/csod.png" alt="">
-                </div>
-                <div class="card-description">
-                    <h3>Cornerstone</h3>
-                    <p>Design and Development</p>
-                </div>
-            </a>
-        </div>
+        <!-- Portfolio cards will be injected here by JavaScript -->
     </div>
 </section>
 
@@ -125,6 +82,51 @@
 </style>
 
 <script>
+    const portfolioData = [
+        {
+            name: "Kraft",
+            description: "Development",
+            imageUrl: "/portfolio/images/kraft.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "FCSA",
+            description: "Custom Component Development",
+            imageUrl: "/portfolio/images/fcsa.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "Chubb",
+            description: "Development",
+            imageUrl: "/portfolio/images/chubb.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "Cornerstone",
+            description: "Design and Development",
+            imageUrl: "/portfolio/images/csod.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        }
+    ];
+
+    const container = document.querySelector('.portfolio-container');   
+    portfolioData.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('portfolio-card');
+        card.innerHTML = `
+            <a href="${item.pageUrl}">
+                <div class="card-image">
+                    <img src="${item.imageUrl}" alt="${item.name}">
+                </div>
+                <div class="card-description">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                </div>
+            </a>
+        `;
+        container.appendChild(card);
+    });
+
     // Add class names to portfolio cards based on their headings
     document.querySelectorAll('.portfolio-card').forEach(card => {
         const h3 = card.querySelector('h3');
