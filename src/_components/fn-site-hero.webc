@@ -2,12 +2,12 @@
   <div class="hero-container">
     <div class="hero-content">
       <div class="hero-content--header">
-        <h1>Hi, I'm <br><span class="color-opposite">Jerad Griffin</span></h1>
-        <h2>Designer<span class="color-opposite">/</span>Developer</h2>
+        <h1>Hi, I'm <br><span class="color-opposite slash">Jerad Griffin</span></h1>
+        <h2>Designer<span class="color-opposite slash">/</span>Developer</h2>
       </div>
       <div class="hero-content--description">
         <div class="hero-content--description-text">
-          <p>Explore my work and projects that showcase my skills and creativity.</p>
+          <p>Building accessible, fast, and human-first UI experiences</p>
           <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact 
             <img src="/portfolio/images/arrow-right.png" alt="">
           </a>
@@ -43,19 +43,30 @@
     .hero-content {
       display: flex;
       flex-direction: column;
+      gap: var(--spacing--xx-small);
       justify-content: center;
       max-inline-size: 100%;
       padding: var(--spacing--xx-small) var(--spacing--small);
       width: 100%;
       z-index: 1;
+
+      .hero-content--header, .hero-content--description-text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing--x-small);
+      }
+
+      .slash {
+        margin-inline: var(--spacing--xx-small);
+      }
     }
 
     .hero-content--description-text {
-      display: grid;
-      gap: var(--spacing--small);
-    }
-
-    .hero-content--description {
+      /* display: grid;
+      gap: var(--spacing--small); */
+      p {
+        margin-block: 0;
+      }
     }
 
     .hero-image--container {
@@ -101,7 +112,7 @@
 
       img {
         color: var(--white);
-        height: 1.25rem;
+        height: var(--p-size, 1rem);
         position: relative;
         right: -8px;
       }
@@ -120,7 +131,7 @@
           flex-direction: column;
           justify-content: center;
           max-inline-size: 100%;
-          padding: var(--spacing--xx-small) var(--spacing--large);
+          padding: var(--spacing--xx-small) calc(var(--spacing--large) * 2);
           width: 100%;
           z-index: 1;
         }
@@ -139,9 +150,9 @@
     }
   }  
 
-  @container hero (min-width: 1024px) {
+  /* @container hero (min-width: 1024px) {
     
-  }
+  } */
 }
   
 </style>

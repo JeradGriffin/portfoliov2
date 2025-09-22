@@ -1,0 +1,25 @@
+<section class="skills" id="skills">
+  <div class="skills-container">
+    <h2>Skills</h2>
+    <div class="skills-content">
+        <div class="design-skills">
+            <h3>Design</h3>
+            <ul>
+                <li>Adobe XD</li>
+                <li>Figma</li>
+                <li>Sketch</li>
+                <li>Photoshop</li>
+            </ul>
+        </div>
+        <div class="development-skills">
+            <h3>Development</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Sharepoint</li>
+                <li>Adobe Experience Manager (AEM)</li>
+            </ul>
+    </div>
+  </div>
+</section>

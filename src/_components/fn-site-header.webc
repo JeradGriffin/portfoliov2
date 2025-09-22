@@ -15,13 +15,13 @@
 
 <style>
   body > header {
-    background-color: var(--off-white);
+    background-color: var(--background--light);
     padding-block: var(--mnml--spacing);
 
-    @supports (background-color: color-mix(in oklch, var(--off-white), black)) {
+    @supports (background-color: color-mix(in oklch, var(--background--light), black)) {
       background-color: color-mix(
         in oklch,
-        var(--off-white) 95%,
+        var(--background--light) 95%,
         transparent
       );
       backdrop-filter: blur(0.5rem);
@@ -29,7 +29,7 @@
 
     a {
       font-family: var(--font--family);
-      font-size: 1.5rem;
+      font-size: var(--font--size--16);
     }
 
     .logo {

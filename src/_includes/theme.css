@@ -16,7 +16,7 @@
   --off-white: oklch(97.015% 0.00011 271.152);
   --white: oklch(100% 0.00011 271.152);
 
-  --background--light: oklch(97.015% 0.00011 271.152);
+  --background--light: oklch(98.212% 0.00011 271.152);
   --border-radius-8: .5rem;
   --border-radius-16: 1rem;
   --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -43,15 +43,15 @@
   --nav-bg: var(--off-white);
 
   /*Hero */
-  --hero-bg-color: oklch(91.41% 0.01679 151.395);
+  /* --hero-bg-color: oklch(91.41% 0.01679 151.395); */
   --hero-height: calc(100vh - var(--offset-height, 6rem));
   --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4);
   --h1-size: clamp(3rem, 6vw, 4rem);
-  --h2-size: 1.5rem;
+  --h2-size: 2.5rem;
   --h3-size: 1.25rem;
   --p-size: 1rem;
 
-  --fn--footer--background-color--light: var(--off-white);
+  --fn--footer--background-color--light: var(--background--light);
   --fn--footer--background-color--dark: var(--color--primary);
 }
 
@@ -64,12 +64,13 @@
   --hero-bg-color: oklch(69.501% 0.07346 148.976);
   --hero-image-bg: oklch(91.41% 0.01679 151.395 / 0.4);
   --menu-toggle-color: oklch(100% 0.00011 271.152);
+  --section-bg-opposite: oklch(0.4091 0 0);
 
   body {
     background-color: var(--color--primary);
   }
 
-  section:not(.hero) {
+  section.portfolio, section.clients {
     background-color: var(--color--tertiary, oklch(35.618% 0.00004 271.152));
   }
 
@@ -102,7 +103,7 @@
     }
   }
 
-  .clients {
+  /* .clients {
     li {
       &:hover,
       &:focus-within {
@@ -113,5 +114,5 @@
           color: var(--card-bg, oklch(97.015% 0.00011 271.152));
       }
     }
-  }
+  } */
 }

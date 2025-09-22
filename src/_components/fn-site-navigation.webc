@@ -120,7 +120,7 @@
 .nav-list a {
     text-decoration: none;
     color: inherit;
-    font-size: var(--font--size--18);
+    font-size: var(--font--size--16);
     font-weight: 500;
 }
 
@@ -154,7 +154,7 @@
 
 .theme-switch input[type=checkbox]:checked ~ label::after {
     background-color: var(--color--primary);
-    transform: translateX(24px);
+    transform: translateX(20px);
 }
 
 .theme-switch label {
@@ -165,8 +165,8 @@
     display: inline-block;
     position: relative;
     transition: all ease-in-out 0.3s;
-    width: 50px;
-    height: 26px;
+    width: 40px;
+    height: 22px;
 }
 
 .theme-switch label::after {
@@ -179,8 +179,8 @@
     left: 1px;
     top: 1px;
     transition: var(--transition);
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }
 
 #theme-toggle {

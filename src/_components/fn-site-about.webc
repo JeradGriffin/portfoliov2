@@ -1,0 +1,71 @@
+<section class="about" id="about">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="/portfolio/images/about-me.png" alt="About Me">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a UX/UI Designer & Developer with 11 years of experience creating accessible, user-focused digital solutions for global brands. Skilled in blending design strategy with front-end development to deliver seamless experiences, with a strong track record of collaboration and innovation.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+.about {
+    background-color: oklch(0.89 0 0 / 0.4);
+    container-type: inline-size;
+    container-name: about;
+
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .about-image {
+        max-inline-size: 30rem;
+
+        img {
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing--small);
+
+        p {
+            font-weight: normal;
+        }
+    }
+
+    @container about (min-width: 768px) {
+        .about-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+:root[data-theme="dark"] {
+    .about {
+        background-color: var(--section-bg-opposite);
+        .about-content {
+            h2, p {
+                color: var(--color--text-light);
+            }
+
+            p {
+                font-weight: normal
+            };
+        }
+    }
+}
+</style>
