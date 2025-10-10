@@ -1,4 +1,6 @@
 :root {
+  --font-family-Montserrat: 'Montserrat', sans-serif;
+
   --mnml--body--background-color--light: oklch(100% 0 0);
   --mnml--body--background-color--dark: oklch(26.21% 0.009 248.19);
   --mnml--body--text-color--light: oklch(26.21% 0.009 248.19);
@@ -45,10 +47,11 @@
   /*Hero */
   /* --hero-bg-color: oklch(91.41% 0.01679 151.395); */
   --hero-height: calc(100vh - var(--offset-height, 6rem));
-  --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4);
+  --hero-image-bg: oklch(100% 0.00011 271.152 / 0.715);
   --h1-size: clamp(3rem, 6vw, 4rem);
-  --h2-size: 2.5rem;
-  --h3-size: 1.25rem;
+  --h2-size: 2.25rem;
+  --h3-size: 2rem;
+  --h4-size: 1.25rem;
   --p-size: 1rem;
 
   --fn--footer--background-color--light: var(--background--light);
@@ -62,7 +65,7 @@
   --nav-bg: var(--color--primary);
   --nav-text-color: oklch(100% 0.00011 271.152);
   --hero-bg-color: oklch(69.501% 0.07346 148.976);
-  --hero-image-bg: oklch(91.41% 0.01679 151.395 / 0.4);
+  /* --hero-image-bg: oklch(100% 0.00011 271.152 / 0.4); */
   --menu-toggle-color: oklch(100% 0.00011 271.152);
   --section-bg-opposite: oklch(0.4091 0 0);
 
@@ -103,16 +106,7 @@
     }
   }
 
-  /* .clients {
-    li {
-      &:hover,
-      &:focus-within {
-          background-color: var(--color--secondary);
-      }
-      &:hover a,
-      &:focus-within a {
-          color: var(--card-bg, oklch(97.015% 0.00011 271.152));
-      }
-    }
-  } */
+  .portfolio-card h4 {
+      color: var(--off-white);
+  }
 }

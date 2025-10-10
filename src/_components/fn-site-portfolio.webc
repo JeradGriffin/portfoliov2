@@ -1,12 +1,12 @@
-<section class="portfolio" id="portfolio">
-    <h2>Work</h2>
+<section class="portfolio animate-on-scroll" id="portfolio">
+    <h3>Work</h3>
     <div class="portfolio-container">
         <!-- Portfolio cards will be injected here by JavaScript -->
     </div>
 </section>
 
 <style webc:scoped>
-    h2 {
+    h3 {
         margin-block-end: var(--spacing--small, 1rem);
     }
 
@@ -28,7 +28,7 @@
         padding: var(--spacing--small);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         &:hover {
-            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 8px oklch(47.075% 0.01582 166.793 / 0.2);
         }
         &:hover img {
             transform: scale(1.08);
@@ -56,15 +56,33 @@
                 color: var(--color--primary, oklch(35.618% 0.00004 271.152));
             }
 
-            h3 {
-                font-size: var(--h3-size, 1.25rem);
-                margin-block-end: var(--spacing--xx-small);
+            h4 {
+                color: var(--color--tertiary);
+                font-size: var(--h4-size);
+                font-weight: 600;
+                margin-block-end: 0;
             }
 
             p {
                 font-weight: normal;
             }
         }
+    }
+
+    .portfolio-card:nth-child(1), .portfolio-card:nth-child(5) {
+        transition-delay: 300ms;
+    }
+
+    .portfolio-card:nth-child(2), .portfolio-card:nth-child(6) {
+        transition-delay: 200ms;
+    }
+
+    .portfolio-card:nth-child(3), .portfolio-card:nth-child(7) {
+        transition-delay: 100ms;
+    }
+
+    .portfolio-card:nth-child(4), .portfolio-card:nth-child(8) {
+        transition-delay: 50ms;
     }
 
     @container portfolio (min-width: 768px) {
@@ -76,6 +94,16 @@
     @container portfolio (min-width: 1024px) {
         .portfolio-container {
             grid-template-columns: repeat(4, 1fr);
+            align-items: stretch;
+
+            .portfolio-card {
+                min-height: 17.75rem;
+        }
+    }
+
+    :root[data-theme="dark"] {
+        .portfolio-card h4 {
+            color: var(--off-white);
         }
     }
 </style>
@@ -105,20 +133,44 @@
             description: "Design and Development",
             imageUrl: "/portfolio/images/csod.png",
             pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "URW",
+            description: "Design & Development",
+            imageUrl: "/portfolio/images/urw.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "Go Canvas",
+            description: "Design & Development",
+            imageUrl: "/portfolio/images/gocanvas.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "LG",
+            description: "Development",
+            imageUrl: "/portfolio/images/lg.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },
+        {
+            name: "Palo Alto",
+            description: "Design and Development",
+            imageUrl: "/portfolio/images/palo.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
         }
     ];
 
     const container = document.querySelector('.portfolio-container');   
     portfolioData.forEach(item => {
         const card = document.createElement('div');
-        card.classList.add('portfolio-card');
+        card.classList.add('portfolio-card', 'animate-on-scroll');
         card.innerHTML = `
             <a href="${item.pageUrl}">
                 <div class="card-image">
                     <img src="${item.imageUrl}" alt="${item.name}">
                 </div>
                 <div class="card-description">
-                    <h3>${item.name}</h3>
+                    <h4>${item.name}</h4>
                     <p>${item.description}</p>
                 </div>
             </a>
@@ -128,14 +180,22 @@
 
     // Add class names to portfolio cards based on their headings
     document.querySelectorAll('.portfolio-card').forEach(card => {
-        const h3 = card.querySelector('h3');
-        const name = h3.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+        const h4 = card.querySelector('h4');
+        const name = h4.textContent.trim().replace(/\s+/g, '').toLowerCase();
+        console.log(name);
         card.classList.add(name);
 
         const link = card.querySelector('a');
         if (link) {
             const baseHref = link.getAttribute('href').split('?')[0];
             link.setAttribute('href', `${baseHref}?card=${name}`);
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function(e) {
+                // Prevent double navigation if clicking the <a>
+                if (e.target.tagName.toLowerCase() !== 'a') {
+                    window.location.href = link.href;
+                }
+            });
         }
 
         link.addEventListener('click', function() {

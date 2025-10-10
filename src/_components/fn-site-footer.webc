@@ -1,4 +1,4 @@
-<footer class="sticky" webc:root="override" class="container--grid">
+<footer class="sticky animate-on-scroll" webc:root="override" class="container--grid">
   <small class="license" @html="$data.copyright"></small>
 </footer>
 

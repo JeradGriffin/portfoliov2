@@ -29,3 +29,16 @@ document.getElementById('theme-toggle')?.addEventListener('click', () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
 });
+
+// Animation on scroll using Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing after first reveal
+        }
+    });
+});
+
+const hiddenSections = document.querySelectorAll('.animate-on-scroll');
+hiddenSections.forEach(section => observer.observe(section));

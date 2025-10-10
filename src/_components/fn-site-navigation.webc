@@ -6,6 +6,7 @@
         </li>
         <li><a href="/#home" aria-label="Go to homepage">Home</a></li>
         <li><a href="/#portfolio">Work</a></li>
+        <li><a href="/#about">About</a></li>
         <li><a href="/#clients">Clients</a></li>
         <li>
             <div class="theme-switch">
@@ -179,8 +180,8 @@
     left: 1px;
     top: 1px;
     transition: var(--transition);
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19.5px;
 }
 
 #theme-toggle {
@@ -256,4 +257,4 @@ navList.querySelectorAll('a').forEach(link => {
         navList.classList.remove('open');
     });
 });
-</script></li>
+</script>
