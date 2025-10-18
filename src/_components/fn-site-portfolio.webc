@@ -22,13 +22,14 @@
     }
 
     .portfolio-card {
-        background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
         border-radius: var(--border-radius-8, 0.5rem);
         overflow: hidden;
         padding: var(--spacing--small);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
         &:hover {
+            background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
             box-shadow: 0 1px 8px oklch(47.075% 0.01582 166.793 / 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
         &:hover img {
             transform: scale(1.08);
@@ -93,7 +94,7 @@
 
     @container portfolio (min-width: 1024px) {
         .portfolio-container {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             align-items: stretch;
 
             .portfolio-card {

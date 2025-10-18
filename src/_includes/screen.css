@@ -53,7 +53,8 @@
 } */
 
 body {
-    background-color: var(--background--light, oklch(97.015% 0.00011 271.152));
+    /* background-color: var(--background--light, oklch(97.015% 0.00011 271.152)); */
+    background: linear-gradient(145deg,rgba(249, 249, 249, 1) 25%, rgba(232, 237, 235, 1) 50%, rgba(249, 249, 249, 1) 75%);
     overflow-x: hidden;
     scroll-behavior: smooth;
 }

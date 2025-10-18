@@ -24,7 +24,7 @@
         var(--background--light) 95%,
         transparent
       );
-      backdrop-filter: blur(0.5rem);
+      backdrop-filter: blur(0.8rem);
     }
 
     a {

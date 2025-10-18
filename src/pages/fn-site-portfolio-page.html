@@ -39,6 +39,8 @@
                     font-weight: normal;
                     line-height: 1.6;
                 }
+
+                a { color: var(--color--primary); }
             }
         }
 
@@ -58,6 +60,13 @@
             }
         }
     }
+
+    :root[data-theme="dark"] {
+        .portfolio-text {
+            color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
+            a { color: var(--color--opposite, oklch(97.015% 0.00011 271.152)); }
+        }
+    }
     
 </style>
 
@@ -71,8 +80,9 @@
         },
         fcsa: {
             image: "/portfolio/images/fcsa_devices.png",
-            title: "FCSA Project",
-            description: "This is a brief description of the FCSA project. It showcases an image above and some text below."
+            title: "Farm Credit Services of America (FCSA)",
+            description: "I collaborated closely with the design and marketing teams to develop and launch FCSA’s new company website. Built reusable web components in Adobe Experience Manager (AEM) to ensure the Figma designs were translated precisely into functional, responsive pages. Created custom authoring dialogs in AEM to allow the marketing team to easily manage and update content. Contributed to improving the overall user experience and site navigation, resulting in a more intuitive and consistent digital presence.",
+            link: "https://www.fcsamerica.com"
         },
         chubb: {
             image: "/portfolio/images/chubb_devices.png",
@@ -115,6 +125,13 @@
             document.querySelector('.portfolio-image').src = data.image;
             document.querySelector('.portfolio-text h2').textContent = data.title;
             document.querySelector('.portfolio-text p').textContent = data.description;
+            if (data.link) {
+                const linkElement = document.createElement('a');
+                linkElement.href = data.link;
+                linkElement.target = "_blank";
+                linkElement.textContent = "View Project";
+                document.querySelector('.portfolio-text').appendChild(linkElement);
+            }
         }
     }
 </script>

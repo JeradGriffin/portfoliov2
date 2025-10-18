@@ -12,21 +12,24 @@
 
   @supports (background-color: light-dark(white, black)) {
     body > footer {
-      background-color: light-dark(
+      background-color: transparent;
+      /* background-color: light-dark(
         var(--fn--footer--background-color--light),
         var(--fn--footer--background-color--dark)
-      );
+      ); */
     }
   }
 
   @supports not (background-color: light-dark(white, black)) {
     body > footer {
-      background-color: var(--fn--footer--background-color--light);
+      /* background-color: var(--fn--footer--background-color--light); */
+      background-color: transparent;
     }
 
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) body > footer {
-        background-color: var(--fn--footer--background-color--dark);
+        /* background-color: var(--fn--footer--background-color--dark); */
+        background-color: transparent;
       }
     }
   }

@@ -59,6 +59,8 @@
 }
 
 :root[data-theme="dark"] {
+  /* --body--bg-color: linear-gradient(145deg,oklch(31.317% 0.00004 271.152) 25%, oklch(40.563% 0.00511 157.478) 50%, oklch(31.317% 0.00004 271.152) 75%); */
+  --body--bg-color: linear-gradient(to right bottom, #313131, #353636, #393a3b, #3d3f3f, #414443, #414443, #414443, #414443, #3d3f3f, #393a3b, #353636, #313131);
   --btn--background-color: var(--color--primary);
   --card-bg: var(--color--primary);
   --color--opposite: oklch(97.015% 0.00011 271.152);
@@ -70,7 +72,7 @@
   --section-bg-opposite: oklch(0.4091 0 0);
 
   body {
-    background-color: var(--color--primary);
+    background: var(--body--bg-color);
   }
 
   section.portfolio, section.clients {
