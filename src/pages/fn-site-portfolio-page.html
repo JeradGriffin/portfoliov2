@@ -106,7 +106,20 @@
         }
     }
 
-    .fcsa {
+    .portfolio-page-container.kraft .site-containers {
+        section {
+            max-block-size: 19.5rem;
+        }
+
+        .desktop-image {
+            img {
+                aspect-ratio: 1254 / 857;
+            }
+        }
+    }
+
+
+    .portfolio-page-container.fcsa .site-containers {
         .desktop-image {
             img {
                 aspect-ratio: 337 / 968;
@@ -120,11 +133,27 @@
         } 
     }
 
-    .chubb {
+    .portfolio-page-container.chubb .site-containers {
         .desktop-image {
             img {
                 height: 100%;
             }
+        }
+    }
+
+    .portfolio-page-container.cornerstone .site-containers{
+        .desktop-image {
+            grid-column: 1 / 3;
+
+            img {
+                aspect-ratio: 737 / 857;
+            }
+        }
+    }
+
+    .portfolio-page-container.lg .site-containers, .portfolio-page-container.paloalto .site-containers {
+        .desktop-image {
+            grid-column: 1 / 4;
         }
     }
 
@@ -142,8 +171,8 @@
     const portfolioPageData = {
         kraft: {
             className: 'kraft',
-            image: "/portfolio/images/kraft_devices.png",
-            image_mb: "/portfolio/images/kraft_devices_mb.png",
+            image: "/portfolio/images/kraft_desktop.png",
+            image_mb: "/portfolio/images/kraft_mobile.png",
             title: "Kraft Landing Page",
             description: "This is a brief description of the Kraft project. It showcases an image above and some text below."
         },
@@ -164,31 +193,32 @@
         },
         cornerstone: {
             className: 'cornerstone',
-            image: "/portfolio/images/csod_devices.png",
+            image: "/portfolio/images/cornerstone_desktop.png",
+            image_mb: "/portfolio/images/cornerstone_mobile.png",
             title: "Cornerstone Project",
             description: "This is a brief description of the Cornerstone project. It showcases an image above and some text below."
         },
-        urw: {
-            className: 'urw',
-            image: "/portfolio/images/csod_devices.png",
-            title: "Unibail-Rodamco-Westfield Project",
-            description: "This is a brief description of the Unibail-Rodamco-Westfield project. It showcases an image above and some text below."
-        },
-        gocanvas: {
-            className: 'gocanvas',
-            image: "/portfolio/images/gocanvas_devices.png",
-            title: "Go Canvas Project",
-            description: "This is a brief description of the GoCanvas project. It showcases an image above and some text below."
-        },
+        // urw: {
+        //     className: 'urw',
+        //     image: "/portfolio/images/csod_devices.png",
+        //     title: "Unibail-Rodamco-Westfield Project",
+        //     description: "This is a brief description of the Unibail-Rodamco-Westfield project. It showcases an image above and some text below."
+        // },
+        // gocanvas: {
+        //     className: 'gocanvas',
+        //     image: "/portfolio/images/gocanvas_devices.png",
+        //     title: "Go Canvas Project",
+        //     description: "This is a brief description of the GoCanvas project. It showcases an image above and some text below."
+        // },
         lg: {
             className: 'lg',
-            image: "/portfolio/images/lg_devices.png",
+            image: "/portfolio/images/lg_desktop.png",
             title: "LG Project",
             description: "This is a brief description of the LG project. It showcases an image above and some text below."
         },
         paloalto: {
             className: 'paloalto',
-            image: "/portfolio/images/paloalto_devices.png",
+            image: "/portfolio/images/palo_desktop.png",
             title: "Palo Alto Project",
             description: "This is a brief description of the Palo Alto project. It showcases an image above and some text below."
         }

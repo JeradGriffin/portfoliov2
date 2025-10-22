@@ -155,18 +155,18 @@
             imageUrl: "/portfolio/images/csod.png",
             pageUrl: "/pages/fn-site-portfolio-page"
         },
-        {
-            name: "URW",
-            description: "Design & Development",
-            imageUrl: "/portfolio/images/urw.png",
-            pageUrl: "/pages/fn-site-portfolio-page"
-        },
-        {
-            name: "Go Canvas",
-            description: "Design & Development",
-            imageUrl: "/portfolio/images/gocanvas.png",
-            pageUrl: "/pages/fn-site-portfolio-page"
-        },
+        //{
+        //   name: "URW",
+        //    description: "Design & Development",
+        //    imageUrl: "/portfolio/images/urw.png",
+        //    pageUrl: "/pages/fn-site-portfolio-page"
+        //},
+        //{
+        //    name: "Go Canvas",
+        //    description: "Design & Development",
+        //    imageUrl: "/portfolio/images/gocanvas.png",
+        //   pageUrl: "/pages/fn-site-portfolio-page"
+        //},
         {
             name: "LG",
             description: "Development",

@@ -94,9 +94,8 @@
     } */
 
     .hero-image {
-      background-image: linear-gradient(hsl(0 0% 100% / .9), hsl(0 0% 100% / .9)), url('/portfolio/images/hero-me-bg.jpg');
+      background-image: linear-gradient(hsl(0 0% 100% / .95), hsl(0 0% 100% / .94)), url('/portfolio/images/hero_bg.jpg');
       background-repeat: no-repeat;
-      background-position: center;
       background-size: cover; 
       display: flex;
       align-items: flex-end;
@@ -104,13 +103,13 @@
       justify-content: center;
       overflow: hidden;
       position: relative;
-      top: var(--spacing--xx-small);
+      /* top: var(--spacing--xx-small); */
       width: 100%;
       
       img {
         width: 100%;
         height: auto;
-        max-height: 50vh;
+        max-height: 46vh;
         object-fit: contain;
       }
     }
@@ -174,19 +173,25 @@
       .hero-image {
         border-top-left-radius: var(--border-radius-8);
         border-bottom-left-radius: var(--border-radius-8);
-        height: 70%;
+        height: 60%;
 
         img {
           width: auto;
         }
       }
     }
-
-    
   }
-}  
 
-
-
-  
+  @container hero (min-width: 1023px) {
+    .hero-container {
+      .hero-image--container {
+        .hero-image {
+          img {
+            max-height: 55vh;
+          }
+        }
+      }
+    }
+  }
+}
 </style>
