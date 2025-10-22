@@ -110,13 +110,15 @@ section {
     gap: var(--spacing--small);
 }
 
-section:not(.hero) {
-    padding: calc(var(--spacing--large) * 2);
+@media (min-width: 1024px) {
+    section:not(.hero) {
+        padding: calc(var(--spacing--large) * 2);
+    }
 }
 
 .portfolio, .clients {
     background-color: var(--white);
-    
+    padding: var(--spacing--medium);
 }
 
 .container--grid {

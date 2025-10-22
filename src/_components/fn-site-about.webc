@@ -20,15 +20,15 @@
     container-name: about;
 
     .about-container {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
         align-items: center;
         gap: 2rem;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .about-image {
-        max-inline-size: 30rem;
+        max-inline-size: 20rem;
 
         img {
             border-radius: 50%;
@@ -52,6 +52,7 @@
     @container about (min-width: 768px) {
         .about-container {
             grid-template-columns: 1fr 1fr;
+            display: grid;
         }
     }
 }

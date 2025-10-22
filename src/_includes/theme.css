@@ -47,9 +47,9 @@
   /*Hero */
   /* --hero-bg-color: oklch(91.41% 0.01679 151.395); */
   --hero-height: calc(100vh - var(--offset-height, 6rem));
-  --hero-image-bg: oklch(100% 0.00011 271.152 / 0.715);
+  --hero-image-bg: oklab(100% 0 -0.00011 / 0.715);
   --h1-size: clamp(3rem, 6vw, 4rem);
-  --h2-size: 2.25rem;
+  --h2-size: clamp(1.5rem, 6vw, 2.25rem);
   --h3-size: 2rem;
   --h4-size: 1.25rem;
   --p-size: 1rem;

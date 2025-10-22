@@ -1,9 +1,20 @@
 <div class="portfolio-page-container">
     <div class="portfolio-example">
-        <img src="" alt="Example Portfolio" class="portfolio-image">
         <div class="portfolio-text">
             <h2></h2>
             <p></p>
+        </div>
+        <div class="site-containers">
+            <section class="desktop-image">
+                <div class="img-container">
+                    <img src="" alt="Example Portfolio" class="portfolio-image">
+                </div>
+            </section>
+            <section class="mobile-image">
+                <div class="img-container">
+                    <img src="" alt="Example Portfolio" class="portfolio-image">
+                </div>
+            </section>
         </div>
     </div>
 </div>
@@ -15,16 +26,9 @@
         display: flex;height: calc(100vh - var(--header-height, 4rem));
 
         .portfolio-example {
-            display: grid;
+            display: flex;
             grid-template-columns: 1fr;
             text-align: center;
-
-            .portfolio-image {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-                /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
-            }
 
             .portfolio-text {
                 display: flex;
@@ -33,6 +37,7 @@
                 margin-top: unset;
                 font-size: 1.1rem;
                 color: #333;
+                max-inline-size: 40%;
 
                 p {
                     font-size: var(--p-size, 1rem);
@@ -42,6 +47,46 @@
 
                 a { color: var(--color--primary); }
             }
+        }
+
+        .site-containers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: var(--spacing--small);
+            max-inline-size: 60%;
+
+            section {
+                padding: 0;
+                max-block-size: 31.25rem;
+            }
+
+            .img-container {
+                border-radius: var(--border-radius-8);
+                overflow-block: auto;
+                scrollbar-width: none;
+            }
+
+            .portfolio-image, .desktop-image, .mobile-image {
+                width: 100%;
+                border-radius: 8px;
+                /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+                img {
+                    width: 100%;
+                    border-radius: var(--border-radius-8);
+                    
+                }
+            }
+
+            .desktop-image {
+                grid-column: 1 / 3;
+                grid-row: 1;
+            }
+
+            .mobile-image {
+                grid-column: 3;
+                grid-row: 1 / 2;
+            }   
         }
 
         @container portfolio-example (min-width: 768px) {
@@ -61,6 +106,28 @@
         }
     }
 
+    .fcsa {
+        .desktop-image {
+            img {
+                aspect-ratio: 337 / 968;
+            }
+        }
+
+        .mobile-image {
+            img {
+                aspect-ratio: 104 / 968;
+            }
+        } 
+    }
+
+    .chubb {
+        .desktop-image {
+            img {
+                height: 100%;
+            }
+        }
+    }
+
     :root[data-theme="dark"] {
         .portfolio-text {
             color: var(--color--opposite, oklch(97.015% 0.00011 271.152));
@@ -74,42 +141,53 @@
     // Example portfolio data
     const portfolioPageData = {
         kraft: {
+            className: 'kraft',
             image: "/portfolio/images/kraft_devices.png",
+            image_mb: "/portfolio/images/kraft_devices_mb.png",
             title: "Kraft Landing Page",
             description: "This is a brief description of the Kraft project. It showcases an image above and some text below."
         },
         fcsa: {
-            image: "/portfolio/images/fcsa_devices.png",
+            className: 'fcsa',
+            image: "/portfolio/images/fcsa_desktop.png",
+            image_mb: "/portfolio/images/fcsa_mobile.png",
             title: "Farm Credit Services of America (FCSA)",
             description: "I collaborated closely with the design and marketing teams to develop and launch FCSA’s new company website. Built reusable web components in Adobe Experience Manager (AEM) to ensure the Figma designs were translated precisely into functional, responsive pages. Created custom authoring dialogs in AEM to allow the marketing team to easily manage and update content. Contributed to improving the overall user experience and site navigation, resulting in a more intuitive and consistent digital presence.",
             link: "https://www.fcsamerica.com"
         },
         chubb: {
-            image: "/portfolio/images/chubb_devices.png",
+            className: 'chubb',
+            image: "/portfolio/images/chubb_desktop.png",
+            image_mb: "/portfolio/images/chubb_mobile.png",
             title: "Chubb Project",
             description: "This is a brief description of the Chubb project. It showcases an image above and some text below."
         },
         cornerstone: {
+            className: 'cornerstone',
             image: "/portfolio/images/csod_devices.png",
             title: "Cornerstone Project",
             description: "This is a brief description of the Cornerstone project. It showcases an image above and some text below."
         },
         urw: {
+            className: 'urw',
             image: "/portfolio/images/csod_devices.png",
             title: "Unibail-Rodamco-Westfield Project",
             description: "This is a brief description of the Unibail-Rodamco-Westfield project. It showcases an image above and some text below."
         },
         gocanvas: {
+            className: 'gocanvas',
             image: "/portfolio/images/gocanvas_devices.png",
             title: "Go Canvas Project",
             description: "This is a brief description of the GoCanvas project. It showcases an image above and some text below."
         },
         lg: {
+            className: 'lg',
             image: "/portfolio/images/lg_devices.png",
             title: "LG Project",
             description: "This is a brief description of the LG project. It showcases an image above and some text below."
         },
         paloalto: {
+            className: 'paloalto',
             image: "/portfolio/images/paloalto_devices.png",
             title: "Palo Alto Project",
             description: "This is a brief description of the Palo Alto project. It showcases an image above and some text below."
@@ -120,9 +198,22 @@
     const portfolioCardUrl = sessionStorage.getItem('portfolioCardUrl');
     if (portfolioCardUrl) {
         const cardName = new URL(portfolioCardUrl).searchParams.get('card');
+        const page_class = document.querySelector('.portfolio-page-container');
+        if (page_class && cardName) {
+            page_class.classList.add(cardName);
+        }
         const data = portfolioPageData[cardName];
         if (data) {
-            document.querySelector('.portfolio-image').src = data.image;
+            document.querySelector('.desktop-image .portfolio-image').src = data.image;
+            
+            const mobileImgEl = document.querySelector('.mobile-image .portfolio-image');
+            const mobileSection = document.querySelector('.mobile-image');
+            if (data.image_mb) {
+                if (mobileImgEl) mobileImgEl.src = data.image_mb;
+                if (mobileSection) mobileSection.style.display = '';
+            } else {
+                if (mobileSection) mobileSection.style.display = 'none';
+            }
             document.querySelector('.portfolio-text h2').textContent = data.title;
             document.querySelector('.portfolio-text p').textContent = data.description;
             if (data.link) {

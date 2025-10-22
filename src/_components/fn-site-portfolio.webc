@@ -25,11 +25,11 @@
         border-radius: var(--border-radius-8, 0.5rem);
         overflow: hidden;
         padding: var(--spacing--small);
-        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        transition: transform 1s ease;
+        
         &:hover {
-            background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
-            box-shadow: 0 1px 8px oklch(47.075% 0.01582 166.793 / 0.2);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: card-hover .5s cubic-bezier(.2,.9,.2,1) both;
+            box-shadow: 0 2px 8px oklch(47.075% 0.01582 166.793 / 0.2);
         }
         &:hover img {
             transform: scale(1.08);
@@ -99,6 +99,7 @@
 
             .portfolio-card {
                 min-height: 17.75rem;
+            }
         }
     }
 
@@ -106,7 +107,26 @@
         .portfolio-card h4 {
             color: var(--off-white);
         }
+        .portfolio-card {
+            &:hover {
+                box-shadow: transparent;
+            }
+        }
     }
+
+    @keyframes card-hover {
+        from {
+            transform: translateY(0) scale(1);
+            /* box-shadow: 0 1px 8px oklch(47.075% 0.01582 166.793 / 0); */
+            opacity: 0.9;
+        }
+        to {
+            transform: translateY(-8px) scale(1.02);
+            background-color: var(--card-bg, oklch(97.015% 0.00011 271.152));
+            opacity: 1;
+        }
+    }
+
 </style>
 
 <script>
