@@ -23,10 +23,11 @@
     .portfolio-page-container {
         container-type: inline-size;
         container-name: portfolio-example;
-        display: flex;height: calc(100vh - var(--header-height, 4rem));
+        display: flex;
+        height: calc(100vh - var(--header-height, 4rem));
 
         .portfolio-example {
-            display: flex;
+            display: grid;
             grid-template-columns: 1fr;
             text-align: center;
 
@@ -37,7 +38,8 @@
                 margin-top: unset;
                 font-size: 1.1rem;
                 color: #333;
-                max-inline-size: 40%;
+                max-inline-size: 100%;
+                text-align: left;
 
                 p {
                     font-size: var(--p-size, 1rem);
@@ -54,7 +56,7 @@
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: auto;
             gap: var(--spacing--small);
-            max-inline-size: 60%;
+            max-inline-size: 100%;
 
             section {
                 padding: 0;
@@ -89,19 +91,21 @@
             }   
         }
 
-        @container portfolio-example (min-width: 768px) {
+        @container portfolio-example (min-width: 900px) {
             .portfolio-example {
-                grid-template-columns: 1fr 1fr;
+                display: flex;
                 align-items: center;
                 text-align: left;
                 gap: var(--spacing--large);
+
+                .portfolio-text {
+                    grid-column: 2;
+                    margin-top: 0;
+                    max-inline-size: 40%;
+                }
             }
             .portfolio-image {
                 grid-column: 1;
-            }
-            .portfolio-text {
-                grid-column: 2;
-                margin-top: 0;
             }
         }
     }

@@ -8,7 +8,7 @@
       <div class="hero-content--description">
         <div class="hero-content--description-text">
           <p>Building accessible, fast, and human-first UI experiences</p>
-          <a href="mailto:jeradgriffindev@gmail.com" class="btn">Contact 
+          <a href="#cform" class="btn">Contact 
             <img src="/portfolio/images/arrow-right.png" alt="">
           </a>
         </div>
