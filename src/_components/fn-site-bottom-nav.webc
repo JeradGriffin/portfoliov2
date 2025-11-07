@@ -1,0 +1,8 @@
+<div class="site-bottom-nav-container">
+    <ul class="nav-list-footer" id="nav-list-footer">
+        <li><a href="/#top" aria-label="Go to homepage top">Home</a></li>
+        <li><a href="/#portfolio">Work</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#clients">Clients</a></li>
+    </ul>
+</div>

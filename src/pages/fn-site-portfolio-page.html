@@ -5,14 +5,30 @@
             <p></p>
         </div>
         <div class="site-containers">
-            <section class="desktop-image">
-                <div class="img-container">
-                    <img src="" alt="Example Portfolio" class="portfolio-image">
-                </div>
-            </section>
             <section class="mobile-image">
                 <div class="img-container">
-                    <img src="" alt="Example Portfolio" class="portfolio-image">
+                    <img src="" alt="Example Portfolio" class="portfolio-image" id="myImg">
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- The Close Button -->
+                        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                        <!-- Modal Content (The Image) -->
+                        <img class="modal-content" id="img01">
+                    </div>
+                </div>
+            </section>
+            <section class="desktop-image">
+                <div class="img-container">
+                    <img src="" alt="Example Portfolio" class="portfolio-image" id="myImg">
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- The Close Button -->
+                        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+                        <!-- Modal Content (The Image) -->
+                        <img class="modal-content" id="img01">
+                    </div>
                 </div>
             </section>
         </div>
@@ -24,11 +40,13 @@
         container-type: inline-size;
         container-name: portfolio-example;
         display: flex;
-        height: calc(100vh - var(--header-height, 4rem));
+        align-items: center;
 
         .portfolio-example {
             display: grid;
+            gap: var(--spacing--x-large);
             grid-template-columns: 1fr;
+            padding: var(--spacing--large);
             text-align: center;
 
             .portfolio-text {
@@ -38,13 +56,14 @@
                 margin-top: unset;
                 font-size: 1.1rem;
                 color: #333;
-                max-inline-size: 100%;
+                max-inline-size: 28rem;
                 text-align: left;
 
                 p {
                     font-size: var(--p-size, 1rem);
                     font-weight: normal;
                     line-height: 1.6;
+                    margin-block-end: 0;
                 }
 
                 a { color: var(--color--primary); }
@@ -53,20 +72,22 @@
 
         .site-containers {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
+            grid-auto-rows: auto;
             grid-template-rows: auto;
-            gap: var(--spacing--small);
+            gap: var(--spacing--small) 0;
             max-inline-size: 100%;
 
             section {
-                padding: 0;
+                box-shadow: none;
                 max-block-size: 31.25rem;
+                overflow-y: scroll;
+                padding: 0;
+                scrollbar-width: none;
             }
 
             .img-container {
                 border-radius: var(--border-radius-8);
-                overflow-block: auto;
-                scrollbar-width: none;
             }
 
             .portfolio-image, .desktop-image, .mobile-image {
@@ -76,30 +97,129 @@
                 img {
                     width: 100%;
                     border-radius: var(--border-radius-8);
-                    
+                    cursor: pointer;
                 }
             }
 
-            .desktop-image {
-                grid-column: 1 / 3;
-                grid-row: 1;
+            /* Style the Image Used to Trigger the Modal */
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
             }
 
-            .mobile-image {
-                grid-column: 3;
-                grid-row: 1 / 2;
-            }   
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 2; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content (Image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image (Image Text) - Same Width as the Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation - Zoom in the Modal */
+            .modal-content, #caption { 
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+                from {-webkit-transform:scale(0)} 
+                to {-webkit-transform:scale(1)}
+            }
+
+            @keyframes zoom {
+                from {transform:scale(0)} 
+                to {transform:scale(1)}
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 4rem;
+                right: 2rem;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+                .modal-content {
+                    width: 100%;
+                }
+            }  
         }
 
         @container portfolio-example (min-width: 900px) {
+            
+            .site-containers {
+                max-block-size: 18rem;
+                max-inline-size: 60%;
+                gap: var(--spacing--small);
+                grid-template-columns: repeat(3, 1fr);
+
+                section {
+                    max-block-size: 18rem;
+                }
+
+                #myImg:hover {opacity: 0.7;}
+
+                .desktop-image {
+                    grid-column: 1 / 3;
+                    grid-row: 1;
+                }
+
+                .mobile-image {
+                    grid-column: 3;
+                    grid-row: 1 / 2;
+                } 
+            }
             .portfolio-example {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 text-align: left;
                 gap: var(--spacing--large);
+                padding: 10rem var(--spacing--x-large);
 
                 .portfolio-text {
-                    grid-column: 2;
+                    /* grid-column: 2; */
                     margin-top: 0;
                     max-inline-size: 40%;
                 }
@@ -111,10 +231,6 @@
     }
 
     .portfolio-page-container.kraft .site-containers {
-        section {
-            max-block-size: 19.5rem;
-        }
-
         .desktop-image {
             img {
                 aspect-ratio: 1254 / 857;
@@ -155,7 +271,7 @@
         }
     }
 
-    .portfolio-page-container.lg .site-containers, .portfolio-page-container.paloalto .site-containers {
+    .portfolio-page-container.lg .site-containers, .portfolio-page-container.paloalto .site-containers, .portfolio-page-container.gocanvas .site-containers {
         .desktop-image {
             grid-column: 1 / 4;
         }
@@ -202,24 +318,24 @@
             title: "Cornerstone Project",
             description: "This is a brief description of the Cornerstone project. It showcases an image above and some text below."
         },
-        // urw: {
-        //     className: 'urw',
-        //     image: "/portfolio/images/csod_devices.png",
-        //     title: "Unibail-Rodamco-Westfield Project",
-        //     description: "This is a brief description of the Unibail-Rodamco-Westfield project. It showcases an image above and some text below."
-        // },
-        // gocanvas: {
-        //     className: 'gocanvas',
-        //     image: "/portfolio/images/gocanvas_devices.png",
-        //     title: "Go Canvas Project",
-        //     description: "This is a brief description of the GoCanvas project. It showcases an image above and some text below."
-        // },
-        lg: {
-            className: 'lg',
-            image: "/portfolio/images/lg_desktop.png",
-            title: "LG Project",
-            description: "This is a brief description of the LG project. It showcases an image above and some text below."
+        urw: {
+            className: 'urw',
+            image: "/portfolio/images/urw-desktop.png",
+            title: "Unibail-Rodamco-Westfield Project",
+            description: "This is a brief description of the Unibail-Rodamco-Westfield project. It showcases an image above and some text below."
         },
+        gocanvas: {
+            className: 'gocanvas',
+            image: "/portfolio/images/gocanvas-desktop.png",
+            title: "Go Canvas Project",
+            description: "This is a brief description of the GoCanvas project. It showcases an image above and some text below."
+        },
+        // lg: {
+        //     className: 'lg',
+        //     image: "/portfolio/images/lg_desktop.png",
+        //     title: "LG Project",
+        //     description: "This is a brief description of the LG project. It showcases an image above and some text below."
+        // },
         paloalto: {
             className: 'paloalto',
             image: "/portfolio/images/palo_desktop.png",
@@ -259,4 +375,57 @@
             }
         }
     }
+
+    // Get the modal
+    const modal = document.getElementById('myModal');
+
+    // Attach click handlers to all portfolio images (desktop + mobile)
+    // Disable on mobile devices
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile/.test(navigator.userAgent) ||
+                     (window.matchMedia && window.matchMedia('(pointer:coarse)').matches);
+
+    const imgs = document.querySelectorAll('.portfolio-image');
+
+    if (!isMobile) {
+        imgs.forEach(img => {
+            img.addEventListener('click', function () {
+                // Find the modal inside the same img-container (handles duplicated markup)
+                const container = this.closest('.img-container') || document;
+                const modalEl = container.querySelector('.modal') || document.getElementById('myModal');
+                const modalImg = modalEl ? modalEl.querySelector('.modal-content') : null;
+                if (!modalEl || !modalImg) return;
+                modalImg.src = this.src;
+                modalImg.alt = this.alt || '';
+                modalEl.style.display = 'block';
+            });
+        });
+    } else {
+        // On mobile: make images inert (no modal) and remove pointer affordance
+        imgs.forEach(img => {
+            img.style.cursor = 'default';
+            img.setAttribute('aria-disabled', 'true');
+            // prevent any existing click handlers from opening modals
+            img.addEventListener('click', e => {
+                e.stopImmediatePropagation();
+            }, { passive: true });
+        });
+    }
+
+    // Close buttons for each modal
+    document.querySelectorAll('.modal .close').forEach(close => {
+        close.addEventListener('click', function () {
+            const modalEl = this.closest('.modal');
+            if (modalEl) modalEl.style.display = 'none';
+        });
+    });
+
+    // Close modal when clicking outside the image
+    document.querySelectorAll('.modal').forEach(modalEl => {
+        modalEl.addEventListener('click', function (e) {
+            if (e.target === modalEl) modalEl.style.display = 'none';
+        });
+    });
+
+    
+    
 </script>

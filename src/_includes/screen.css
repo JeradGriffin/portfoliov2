@@ -47,10 +47,7 @@
   src: url('/portfolio/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
 }
 
-/* html {
-    scroll-padding-top: var(--header-height, 4rem);
-    scroll-behavior: smooth;
-} */
+html { scroll-behavior: smooth; }
 
 body {
     /* background-color: var(--background--light, oklch(97.015% 0.00011 271.152)); */

@@ -42,3 +42,13 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenSections = document.querySelectorAll('.animate-on-scroll');
 hiddenSections.forEach(section => observer.observe(section));
+
+document.querySelectorAll('a[href="#home"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const el = document.getElementById('home');
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#home'); // optional: update URL
+  });
+});

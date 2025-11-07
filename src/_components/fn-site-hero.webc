@@ -130,17 +130,24 @@
       /* transition: width 0.5s ease; */
       transition: var(--transition);
 
+      img {
+        color: var(--white);
+        display: none;
+        height: var(--p-size, 1rem);
+        position: relative;
+        right: -5px;
+        transform: rotate(90deg);
+      }
+
       &:hover {
         background-color: var(--btn--background-color--hover, oklch(40% 0.00004 271.152));
         width: max-content;
         padding-inline-end: 1.75rem;
-      }
 
-      img {
-        color: var(--white);
-        height: var(--p-size, 1rem);
-        position: relative;
-        right: -15px;
+        img {
+          display: inline-block;
+          animation: slide-in 0.5s forwards;
+        }
       }
     }
   }

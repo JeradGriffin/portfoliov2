@@ -1,6 +1,6 @@
-<header webc:root="override" class="sticky" id="home">
-  <div class="container">
-    <a href="/#home" aria-label="Go to jeradgriffin-dev.com homepage" class="logo">
+<header webc:root="override" class="sticky">
+  <div class="container" id="home">
+    <a href="#top" aria-label="Go to jeradgriffin-dev.com homepage" class="logo">
       <!-- <img
         src="https://placehold.co/128x64?text=Jerad Griffin"
         alt="jeradgriffin-dev.com logo"

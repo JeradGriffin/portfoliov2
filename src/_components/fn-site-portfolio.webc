@@ -132,15 +132,15 @@
 <script>
     const portfolioData = [
         {
-            name: "Kraft",
-            description: "Development",
-            imageUrl: "/portfolio/images/kraft.png",
-            pageUrl: "/pages/fn-site-portfolio-page"
-        },
-        {
             name: "FCSA",
             description: "Custom Component Development",
             imageUrl: "/portfolio/images/fcsa.png",
+            pageUrl: "/pages/fn-site-portfolio-page"
+        },    
+        {
+            name: "Kraft",
+            description: "Development",
+            imageUrl: "/portfolio/images/kraft.png",
             pageUrl: "/pages/fn-site-portfolio-page"
         },
         {
@@ -155,24 +155,24 @@
             imageUrl: "/portfolio/images/csod.png",
             pageUrl: "/pages/fn-site-portfolio-page"
         },
-        //{
-        //   name: "URW",
+        // {
+        //    name: "URW",
         //    description: "Design & Development",
         //    imageUrl: "/portfolio/images/urw.png",
         //    pageUrl: "/pages/fn-site-portfolio-page"
-        //},
-        //{
-        //    name: "Go Canvas",
-        //    description: "Design & Development",
-        //    imageUrl: "/portfolio/images/gocanvas.png",
-        //   pageUrl: "/pages/fn-site-portfolio-page"
-        //},
+        // },
         {
-            name: "LG",
-            description: "Development",
-            imageUrl: "/portfolio/images/lg.png",
-            pageUrl: "/pages/fn-site-portfolio-page"
+           name: "Go Canvas",
+           description: "Design & Development",
+           imageUrl: "/portfolio/images/gocanvas.png",
+           pageUrl: "/pages/fn-site-portfolio-page"
         },
+        // {
+        //     name: "LG",
+        //     description: "Development",
+        //     imageUrl: "/portfolio/images/lg.png",
+        //     pageUrl: "/pages/fn-site-portfolio-page"
+        // },
         {
             name: "Palo Alto",
             description: "Design and Development",
