@@ -8,6 +8,9 @@ export default (eleventyConfig) => {
     components: "src/_components/**/*.webc",
   });
 
+  // Passthrough copy for images
+  eleventyConfig.addPassthroughCopy("src/**/*.{jpg,jpeg,png,gif,svg,webp}");
+
   eleventyConfig.addJavaScriptFunction("renderTitle", (title) => {
     return [...new Set([title, "Jerad Griffin"])].filter((part) => !!part).join(" | ");
   });
