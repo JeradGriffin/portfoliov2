@@ -1,6 +1,9 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
+// import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default (eleventyConfig) => {
+  //eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_components/**/*.webc",
   });
@@ -24,6 +27,8 @@ export default (eleventyConfig) => {
     () =>
       `&copy; ${[...new Set([2020, new Date().getFullYear()])].join("-")} Jerad Griffin.`
   );
+
+  
 
   return {
     dir: {
