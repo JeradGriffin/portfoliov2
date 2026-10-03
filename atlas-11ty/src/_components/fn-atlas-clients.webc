@@ -1,0 +1,10 @@
+<section class="band" id="clients" webc:root="override">
+  <div class="head reveal">
+    <h2><span class="u">Clients</span> &amp; partners</h2>
+    <div class="meta"><span>page <b style="color:var(--ink)">3.00</b></span><span><span @text="$data.site.clients.length"></span> brands</span></div>
+    <p class="sub">Brands that I've had the privilege to work with.</p>
+  </div>
+  <div class="clients-list reveal">
+    <div class="client" webc:for="c of $data.site.clients"><span class="c-name" @text="c.name"></span><span class="c-sector" @text="c.sector"></span></div>
+  </div>
+</section>

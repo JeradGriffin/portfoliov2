@@ -1,0 +1,28 @@
+<section class="band opener" id="opener" webc:root="override">
+  <div class="opener-top">
+    <span>Jerad Griffin / Selected work &amp; practice</span>
+    <span class="pp">page <b>0.01</b></span>
+  </div>
+  <div class="opener-head reveal">
+    <div class="opener-id">
+      <div class="ai-pill"><span class="signal-dot"></span>AI-assisted development</div>
+      <h1 class="opener-name">
+        <span class="row" @text="$data.site.first"></span>
+        <span class="row"><span class="tail" @text="$data.site.last"></span><span class="stop">.</span></span>
+      </h1>
+    </div>
+    <figure class="opener-portrait">
+      <div class="blk" aria-hidden="true"></div>
+      <img src="/portfolio/images/jeerad.png" alt="Portrait of Jerad Griffin" />
+      <figcaption><span class="signal-dot"></span>Jerad Griffin — UX Designer / Developer</figcaption>
+    </figure>
+  </div>
+  <div class="opener-sub reveal">
+    <p class="role" @html="$data.site.role"></p>
+    <div class="meta">
+      <dl>
+        <div webc:for="f of $data.site.openerFacts"><dt @text="f.k"></dt><dd @html="f.v"></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>

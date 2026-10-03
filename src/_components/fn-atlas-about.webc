@@ -1,0 +1,22 @@
+<section class="band" id="about" webc:root="override">
+  <div class="head reveal">
+    <h2>About the <span class="u">practice</span></h2>
+    <div class="meta"><span>page <b style="color:var(--ink)">2.00</b></span><span>Biography &amp; stack</span></div>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-photo">
+      <div class="pin"><b>—</b> Jerad Griffin</div>
+      <img src="/portfolio/images/about-me.png" alt="Jerad Griffin" loading="lazy" />
+    </div>
+    <div class="about-text">
+      <p class="lede" @html="$data.site.aboutLede"></p>
+      <p webc:for="para of $data.site.about" @text="para"></p>
+      <!-- <div class="ai-callout">
+        <p @text="$data.site.aiCallout"></p>
+      </div> -->
+      <dl class="stack">
+        <div webc:for="s of $data.site.stack"><dt @text="s.k"></dt><dd @text="s.v"></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>

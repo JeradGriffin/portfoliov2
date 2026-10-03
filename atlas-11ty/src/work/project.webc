@@ -1,0 +1,104 @@
+---
+pagination:
+  data: projects
+  size: 1
+  alias: project
+---
+<aside class="spine">
+  <div class="lockup"><span class="mark">JG</span><span><b>Griffin</b>, Jerad</span></div>
+  <button class="spine-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="spine-menu"><span class="bars"></span></button>
+  <div class="spine-menu" id="spine-menu">
+    <a class="spine-back" href="/#work"><span class="arr">←</span> Back to all work</a>
+    <dl class="spine-meta">
+      <div><dt>Chapter</dt><dd @text="project.num"></dd></div>
+      <div><dt>Client</dt><dd @text="project.client"></dd></div>
+      <div><dt>Sector</dt><dd @text="project.sector"></dd></div>
+      <div webc:if="project.year"><dt>Year</dt><dd @text="project.year"></dd></div>
+      <div><dt>Role</dt><dd @text="project.role"></dd></div>
+      <div><dt>Status</dt><dd><span class="signal-dot"></span>Shipped</dd></div>
+    </dl>
+    <nav class="spine-nav" aria-label="Sections">
+      <a href="#overview" class="navlink current"><span>01</span> Overview</a>
+      <a href="#approach" class="navlink"><span>02</span> What I did</a>
+      <a href="#screens" class="navlink" webc:if="project.figures.length"><span>03</span> Screens</a>
+      <a href="#outcome" class="navlink"><span @text="project.figures.length ? '04' : '03'"></span> Outcome</a>
+    </nav>
+    <div class="spine-foot"><span>Case study</span><span @text="project.num"></span></div>
+  </div>
+</aside>
+
+<main class="body" id="content">
+  <section class="band" id="opener" style="padding-top:0">
+    <div class="cs-top">
+      <span class="crumb">Selected work / <b @text="project.num"></b></span>
+      <span class="pp">page <b @text="project.num"></b></span>
+    </div>
+    <div class="reveal">
+      <div class="cs-eyebrow"><b @text="project.sector"></b><span class="sep"></span><span @text="project.kind"></span><span class="sep"></span><span @text="project.role"></span></div>
+      <h1 class="cs-title"><span @text="project.client"></span><span class="stop">.</span></h1>
+      <p class="cs-deck" @html="project.deck"></p>
+      <dl class="cs-facts">
+        <div webc:for="f of project.facts"><dt @text="f.k"></dt><dd @html="f.v"></dd></div>
+      </dl>
+    </div>
+    <figure class="cs-hero reveal">
+      <div class="plate"><img :src="project.hero" :alt="project.client + ' primary screen'" data-zoom /></div>
+      <figcaption><span class="n"><span @text="project.num"></span> — Primary screen</span><span>Click to enlarge</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="band" id="overview">
+    <div class="head reveal"><h2><span class="u">Overview</span></h2><div class="tag">§ 01</div></div>
+    <div class="two reveal">
+      <p class="lead-serif" @text="project.lead"></p>
+      <div class="prose"><p webc:for="para of project.overview" @text="para"></p></div>
+    </div>
+  </section>
+
+  <section class="band" id="approach">
+    <div class="head reveal"><h2>What I <span class="u">did</span></h2><div class="tag">§ 02</div></div>
+    <div class="reveal">
+      <div class="steps">
+        <div class="step" webc:for="(s, i) of project.steps">
+          <div class="no" @text="'0' + (i + 1)"></div>
+          <h3 @text="s.t"></h3>
+          <p @text="s.d"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="screens" webc:if="project.figures.length">
+    <div class="head reveal"><h2><span class="u">Screens</span></h2><div class="tag">§ 03</div></div>
+    <div class="figs reveal">
+      <figure class="figure" webc:for="fig of project.figures">
+        <div class="plate"><img :src="fig.src" :alt="project.client + ' — ' + fig.cap" loading="lazy" data-zoom /></div>
+        <figcaption><span @text="fig.cap"></span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="outcome">
+    <div class="head reveal"><h2><span class="u">Outcome</span></h2><div class="tag" @text="project.figures.length ? '§ 04' : '§ 03'"></div></div>
+    <div class="two reveal">
+      <div></div>
+      <div class="prose">
+        <p @text="project.outcome"></p>
+        <a class="cs-link" webc:if="project.link" :href="project.link" target="_blank" rel="noopener">Visit the live site ↗</a>
+      </div>
+    </div>
+    <a class="next reveal" :href="project.next.url">
+      <div>
+        <div class="lbl">Next — <span @text="project.next.num"></span></div>
+        <div class="nm" @text="project.next.name"></div>
+      </div>
+      <span class="arr">→</span>
+    </a>
+    <div class="foot"><span @html="copyright"></span><span>Chapter <b @text="project.num"></b></span></div>
+  </section>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" type="button" aria-label="Close">×</button>
+    <img alt="" />
+  </div>
+</main>

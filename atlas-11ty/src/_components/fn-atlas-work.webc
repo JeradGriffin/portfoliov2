@@ -1,0 +1,38 @@
+<section class="band" id="work" webc:root="override">
+  <div class="head reveal">
+    <h2><span class="u">Selected</span> work</h2>
+    <div class="meta">
+      <span>page <b style="color:var(--ink)">1.00</b> — <span @text="$data.projects[$data.projects.length - 1].num"></span></span>
+      <span><span @text="String($data.projects.length).padStart(2, '0')"></span> entries</span>
+    </div>
+    <p class="sub" @text="$data.site.workIntro"></p>
+  </div>
+
+  <a webc:for="p of $data.projects" :href="p.url" :class="p.featured ? 'project feature reveal' : 'project reveal'">
+    <div class="pj-num"><span @text="p.num"></span><small webc:if="p.year" @text="p.year"></small></div>
+
+    <div class="pj-main" webc:if="p.featured">
+      <div class="pj-image"><img :src="p.cover" :alt="p.client + ' project screen'" loading="lazy" /></div>
+      <div class="pj-text">
+        <div>
+          <div class="pj-eyebrow"><span>Featured</span><span class="sep"></span><span @text="p.sector"></span></div>
+          <h3 class="pj-title" @text="p.client"></h3>
+        </div>
+        <div>
+          <p class="pj-deck" @html="p.deck"></p>
+          <div class="pj-roles"><span webc:for="c of p.chips" @text="c"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pj-main" webc:if="!p.featured">
+      <div class="pj-text">
+        <div class="pj-eyebrow"><span @text="p.sector"></span><span class="sep"></span><span @text="p.kind"></span></div>
+        <h3 class="pj-title" @text="p.client"></h3>
+        <p class="pj-deck" @html="p.deck"></p>
+        <div class="pj-roles"><span webc:for="c of p.chips" @text="c"></span></div>
+      </div>
+      <div class="pj-image"><img :src="p.cover" :alt="p.client + ' project screen'" loading="lazy" /></div>
+    </div>
+  </a>
+</section>

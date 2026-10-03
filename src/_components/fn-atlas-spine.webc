@@ -1,0 +1,20 @@
+<aside class="spine" webc:root="override">
+  <div class="lockup"><span class="mark" @text="$data.site.monogram"></span><span><b @text="$data.site.last"></b>, <span @text="$data.site.first"></span></span></div>
+  <button class="spine-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="spine-menu"><span class="bars"></span></button>
+  <div class="spine-menu" id="spine-menu">
+    <dl class="spine-meta">
+      <div><dt>Discipline</dt><dd @text="$data.site.discipline"></dd></div>
+      <div><dt>Based</dt><dd @text="$data.site.workflow"></dd></div>
+      <div><dt>Status</dt><dd><span class="signal-dot"></span><span @text="$data.site.status"></span></dd></div>
+      <div><dt>Reach</dt><dd><a href="#contact">Contact form</a></dd></div>
+    </dl>
+    <nav class="spine-nav nav" aria-label="Sections">
+      <a href="#opener" class="navlink current"><span>00</span> Front matter</a>
+      <a href="#work" class="navlink"><span>01</span> Selected work</a>
+      <a href="#about" class="navlink"><span>02</span> About</a>
+      <a href="#clients" class="navlink"><span>03</span> Clients</a>
+      <a href="#contact" class="navlink"><span>04</span> Contact</a>
+    </nav>
+    <div class="spine-foot"><span @html="$data.copyright"></span><span>Portfolio</span></div>
+  </div>
+</aside>
