@@ -1,6 +1,6 @@
 <section class="band opener" id="opener" webc:root="override">
   <div class="opener-top">
-    <span>Jerad Griffin / Selected work &amp; practice</span>
+    <span>Atlas of work / ed. 06 / Oct 2026</span>
     <span class="pp">page <b>0.01</b></span>
   </div>
   <div class="opener-head reveal">
@@ -13,7 +13,7 @@
     <figure class="opener-portrait">
       <div class="blk" aria-hidden="true"></div>
       <img src="/portfolio/images/jeerad.png" alt="Portrait of Jerad Griffin" />
-      <figcaption><span class="signal-dot"></span>Jerad Griffin — UX Designer / Developer</figcaption>
+      <figcaption><span class="signal-dot"></span>UX Developer / Designer</figcaption>
     </figure>
   </div>
   <div class="opener-sub reveal">
