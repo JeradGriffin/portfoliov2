@@ -6,7 +6,7 @@ export default {
   discipline: "UX Design & Front-End",
   workflow: "Tampa, FL",
   status: "Open to new work",
-  role: 'UX designer and front-end developer building <span class="u">accessible, scalable, human-first</span> interfaces for enterprise teams — design and code, in the same pair of hands.',
+  role: 'UX designer and front-end developer building <span class="u">accessible, scalable, human-first</span> interfaces for enterprise teams, design and code, in the same pair of hands.',
   openerFacts: [
     { k: "Years", v: "<b>11</b> in practice" },
     { k: "Practice", v: "Design <b>+</b> code, end to end" },
